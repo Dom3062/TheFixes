@@ -1,4 +1,5 @@
 -- This removes any weapon parts that are in the save file, but not in the game
+-- Also prevents the crash if 'weapon' does not exist
 local origfunc = BlackMarketManager.get_silencer_concealment_modifiers
 function BlackMarketManager:get_silencer_concealment_modifiers(weapon, ...)
 	for k,v in pairs(weapon.blueprint or {}) do
@@ -6,7 +7,12 @@ function BlackMarketManager:get_silencer_concealment_modifiers(weapon, ...)
 			weapon.blueprint[k] = nil
 		end
 	end
-	return origfunc(self, weapon, ...)
+	local weapon_id = weapon.weapon_id or (weapon.factory_id and managers.weapon_factory:get_weapon_id_by_factory_id(weapon.factory_id) or nil)
+	if tweak_data.weapon[weapon_id] then
+		return origfunc(self, weapon, ...)
+	else
+		return 0
+	end
 end
 
 
