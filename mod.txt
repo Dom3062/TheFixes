@@ -41,6 +41,10 @@
 
 			"script_path" : "localizationmanager.lua"
 
+		},
+		{
+			"hook_id": "lib/managers/moneymanager",
+			"script_path": "moneymanager.lua"
 		}
 	]
 }
