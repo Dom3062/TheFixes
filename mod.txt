@@ -27,6 +27,10 @@
 		{
 			"hook_id": "lib/managers/group_ai_states/groupaistatebesiege",
 			"script_path": "groupaistatebesiege.lua"
+		},
+		{
+			"hook_id": "lib/managers/dynamicresourcemanager",
+			"script_path": "dynamicresourcemanager.lua"
 		}
 	]
 }
