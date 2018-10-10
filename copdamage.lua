@@ -22,7 +22,7 @@ local origfunc2 = CopDamage.is_head
 function CopDamage:is_head(body, ...)
 	local head = origfunc2(self, body, ...) or false
 	
-	if not head then
+	if not head and body then
 		local bn = tostring(body:name()) --Idstring(@xxxxxxxxxxxxxxxxxx@)
 		local di = (debug.getinfo(3, 'Sn') or {})
 		if di.name and di.name == '_fire_raycast'
