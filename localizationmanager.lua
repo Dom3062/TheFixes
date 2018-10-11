@@ -8,6 +8,7 @@ end
 
 -- 'The Red Button' achievement description
 -- Infamy achievements description
+-- 'Euro bag simulator' achievements description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
@@ -20,4 +21,8 @@ function LocalizationManager:init(...)
 		infamy_strs['achievement_ignominy_'..i..'_desc'] = 'Reach Infamy '..i
 	end
 	LocalizationManager:add_localized_strings(infamy_strs)
+	
+	LocalizationManager:add_localized_strings({
+		achievement_cane_3_unlock = self:text('achievement_cane_3_unlock'):gsub('Rudolph','Rudelf')
+	})
 end
