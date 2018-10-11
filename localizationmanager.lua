@@ -7,10 +7,17 @@ end
 
 
 -- 'The Red Button' achievement description
+-- Infamy achievements description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
 	LocalizationManager:add_localized_strings({
 		achievement_des_9_desc = self:text('achievement_des_9_desc')..' (OVERKILL+)'
 	})
+	
+	local infamy_strs = {}
+	for i=1, 25 do
+		infamy_strs['achievement_ignominy_'..i..'_desc'] = 'Reach Infamy '..i
+	end
+	LocalizationManager:add_localized_strings(infamy_strs)
 end
