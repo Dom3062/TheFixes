@@ -84,6 +84,10 @@
 		{
 			"hook_id": "lib/managers/trademanager",
 			"script_path": "trademanager.lua"
+		},
+		{
+			"hook_id": "lib/managers/menu/multiprofileitemgui",
+			"script_path": "multiprofileitemgui.lua"
 		}
 	]
 }
