@@ -38,7 +38,6 @@
 		},
 		{
 			"hook_id" : "lib/managers/localizationmanager",
-
 			"script_path" : "localizationmanager.lua"
 
 		},
@@ -73,6 +72,10 @@
 		{
 			"hook_id": "lib/managers/playermanager",
 			"script_path": "playermanager.lua"
+		},
+		{
+			"hook_id": "lib/managers/crimespreemanager",
+			"script_path": "crimespreemanager.lua"
 		}
 	]
 }
