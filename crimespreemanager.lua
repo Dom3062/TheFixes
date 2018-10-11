@@ -1,8 +1,8 @@
 -- Less XP from catch up bonus
-local origfunc = CrimeSpreeManager.calculate_rewards
-function CrimeSpreeManager:calculate_rewards(...)
-	local rewards = origfunc(self, ...) or {}
-	local rl = self:reward_level()
+--local origfunc = CrimeSpreeManager.calculate_rewards
+local function get_rewards(progress)
+	local rewards = {}
+	local rl = progress
 	if rl > 50 then
 	
 		local function new_reward(name, multiplier)
@@ -23,4 +23,15 @@ function CrimeSpreeManager:calculate_rewards(...)
 		rewards['random_cosmetic'] = new_reward('random_cosmetic', diff * 0.3)
 	end
 	return rewards
+end
+
+local origfunc2 = CrimeSpreeManager.on_mission_completed
+function CrimeSpreeManager:on_mission_completed(...)
+	local old_rewards = self._global.unshown_rewards or {}
+	origfunc2(self, ...)
+	self._global.unshown_rewards = old_rewards
+	local new_rewards = get_rewards(self._spree_add)
+	for _, reward in ipairs(tweak_data.crime_spree.rewards) do
+		self._global.unshown_rewards[reward.id] = (self._global.unshown_rewards[reward.id] or 0) + new_rewards[reward.id]
+	end
 end
