@@ -27,11 +27,13 @@ end
 
 local origfunc2 = CrimeSpreeManager.on_mission_completed
 function CrimeSpreeManager:on_mission_completed(...)
-	local old_rewards = self._global.unshown_rewards or {}
-	origfunc2(self, ...)
-	self._global.unshown_rewards = old_rewards
-	local new_rewards = get_rewards(self._spree_add)
-	for _, reward in ipairs(tweak_data.crime_spree.rewards) do
-		self._global.unshown_rewards[reward.id] = (self._global.unshown_rewards[reward.id] or 0) + new_rewards[reward.id]
+	if self:is_active() then
+		local old_rewards = self._global.unshown_rewards or {}
+		origfunc2(self, ...)
+		self._global.unshown_rewards = old_rewards
+		local new_rewards = get_rewards(self._spree_add)
+		for _, reward in ipairs(tweak_data.crime_spree.rewards) do
+			self._global.unshown_rewards[reward.id] = (self._global.unshown_rewards[reward.id] or 0) + new_rewards[reward.id]
+		end
 	end
 end
