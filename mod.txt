@@ -86,6 +86,11 @@
 		{
 			"hook_id": "lib/managers/player/snipergrazedamage",
 			"script_path": "snipergrazedamage.lua"
+		},
+		{
+			"hook_id" : "lib/managers/gameplaycentralmanager",
+			"script_path" : "gameplaycentralmanager.lua"
+
 		}
 	]
 }
