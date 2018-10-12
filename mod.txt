@@ -4,6 +4,7 @@
 	"author": "andole",
 	"version": "1",
 	"blt_version" : 2.0,
+	"priority" : -1,
 	"color" : "0 0.6 0.286",
 	"contact": "\n http://steamcommunity.com/id/andole/",
 
