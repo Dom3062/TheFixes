@@ -40,3 +40,14 @@ function CopDamage:is_head(body, ...)
 	
 	return head
 end
+
+
+-- Sync 'Say Hello to My Big Friend' achievement
+local origfunc3 = CopDamage._check_friend_4
+function CopDamage:_check_friend_4(attack_data, ...)
+	origfunc3(self, attack_data, ...)
+	local tt = self._unit:base()._tweak_table
+	if tt == 'drug_lord_boss' or tt == 'drug_lord_boss_stealth' then
+		self._unit:network():send('sync_friend_4', attack_data)
+	end
+end
