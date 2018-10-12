@@ -2,5 +2,5 @@
 local origfunc = ECMJammerBase.spawn
 function ECMJammerBase.spawn(pos, rot, battery_life_upgrade_lvl, owner, ...)
 	local newpos = owner:position() or pos
-	origfunc(newpos, rot, battery_life_upgrade_lvl, owner, ...)
+	return origfunc(newpos, rot, battery_life_upgrade_lvl, owner, ...)
 end
