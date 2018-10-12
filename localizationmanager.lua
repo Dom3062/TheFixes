@@ -9,11 +9,16 @@ end
 -- 'The Red Button' achievement description
 -- Infamy achievements description
 -- 'Euro bag simulator' achievements description
+-- 'Say Hello to My Big Friend' achievements description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
 	LocalizationManager:add_localized_strings({
 		achievement_des_9_desc = self:text('achievement_des_9_desc')..' (OVERKILL+)'
+	})
+	
+	LocalizationManager:add_localized_strings({
+		achievement_friend_4_desc = self:text('achievement_friend_4_desc')..' (OVERKILL+)'
 	})
 	
 	local infamy_strs = {}
