@@ -16,7 +16,7 @@ function AmmoClip:sync_net_event(event, peer, ...)
 			for id, weapon in pairs(inventory:available_selections()) do
 				picked_up, add_amount = weapon.unit:base():add_ammo(tweak_data.upgrades.loose_ammo_give_team_ratio or 0.25) or picked_up
 	--------------------------------------------------
-				if picked_up and add_amount < 1 then
+				if picked_up and (not add_amount or add_amount < 1) then
 					picked_up, add_amount = weapon.unit:base():add_ammo(nil, 1) or picked_up
 				end
 	--------------------------------------------------
