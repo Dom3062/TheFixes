@@ -18,7 +18,7 @@ function LocalizationManager:init(...)
 	})
 	
 	LocalizationManager:add_localized_strings({
-		achievement_friend_4_desc = self:text('achievement_friend_4_desc')..' (OVERKILL+)'
+		achievement_friend_4_desc = self:text('achievement_friend_4_desc')..' (OVERKILL+) (HOST ONLY)'
 	})
 	
 	local infamy_strs = {}
