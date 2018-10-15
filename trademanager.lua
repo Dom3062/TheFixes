@@ -50,3 +50,12 @@ function TradeManager:criminal_respawn(...)
 		end
 	end
 end
+
+
+local origfunc2 = TradeManager.clbk_begin_hostage_trade
+function TradeManager:clbk_begin_hostage_trade(...)
+	if not (self._criminals_to_respawn and self._criminals_to_respawn[1]) then
+		return
+	end
+	origfunc2(self, ...)
+end
