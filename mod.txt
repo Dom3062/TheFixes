@@ -39,6 +39,7 @@
 		},
 		{
 			"hook_id" : "lib/managers/localizationmanager",
+
 			"script_path" : "localizationmanager.lua"
 
 		},
@@ -57,7 +58,7 @@
 		{
 			"hook_id": "lib/managers/upgradesmanager",
 			"script_path": "upgradesmanager.lua"
-		},
+		}
 		{
 			"hook_id": "lib/units/beings/player/states/playerstandard",
 			"script_path": "playerstandard.lua"
@@ -73,10 +74,6 @@
 		{
 			"hook_id": "lib/states/missionendstate",
 			"script_path": "missionendstate.lua"
-		},
-		{
-			"hook_id": "lib/network/handlers/unitnetworkhandler",
-			"script_path": "unitnetworkhandler.lua"
 		},
 		{
 			"hook_id": "lib/units/pickups/ammoclip",
