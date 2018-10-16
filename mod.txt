@@ -43,10 +43,6 @@
 
 		},
 		{
-			"hook_id": "lib/network/handlers/unitnetworkhandler",
-			"script_path": "unitnetworkhandler.lua"
-		},
-		{
 			"hook_id": "lib/managers/moneymanager",
 			"script_path": "moneymanager.lua"
 		},
@@ -117,6 +113,10 @@
 		{
 			"hook_id": "lib/units/equipment/sentry_gun/sentrygundamage",
 			"script_path": "sentrygundamage.lua"
+		},
+		{
+			"hook_id": "lib/units/equipment/sentry_gun/sentrygunbase",
+			"script_path": "sentrygunbase.lua"
 		},
 		{
 			"hook_id": "lib/managers/group_ai_states/groupaistatebase",
