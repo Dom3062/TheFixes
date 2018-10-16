@@ -10,6 +10,7 @@ end
 -- Infamy achievements description
 -- 'Euro bag simulator' achievements description
 -- 'Say Hello to My Big Friend' achievements description
+-- 'Spooky Pumpkin' trophy description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
