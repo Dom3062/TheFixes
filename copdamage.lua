@@ -40,3 +40,17 @@ function CopDamage:is_head(body, ...)
 	
 	return head
 end
+
+
+-- Fix for concussion grenade stunning dominated and traded cops
+local origfunc4 = CopDamage.stun_hit
+function CopDamage:stun_hit(...)
+	local brain = self._unit:brain()
+	if brain:is_current_logic('intimidated')
+		or brain:is_current_logic('trade')
+	then
+		return
+	end
+	
+	origfunc4(self, ...)
+end
