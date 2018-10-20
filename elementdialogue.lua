@@ -24,7 +24,7 @@ function ElementDialogue:_can_play(...)
 
 	if not res then
 		if not current_level then
-			current_level = managers.job:current_level_id() or nil
+			current_level = managers.job:current_level_id() or ''
 		end
 		
 		if levels[current_level]
