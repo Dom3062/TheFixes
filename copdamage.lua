@@ -1,5 +1,6 @@
 -- Fire DOT stats fix
 -- Fix for 'Masterpiece' achievement
+-- Fix for 'Matrix with lasers' achievement
 local origfunc = CopDamage._on_damage_received
 function CopDamage:_on_damage_received(damage_info, ...)
 	if damage_info.result.type == 'death' then
@@ -16,6 +17,14 @@ function CopDamage:_on_damage_received(damage_info, ...)
 		
 		AchievmentManager.the_fixes_failed = AchievmentManager.the_fixes_failed or {}
 		AchievmentManager.the_fixes_failed['cac_19'] = true
+		
+		local char_tweak = tweak_data.character[self._unit:base()._tweak_table or '']
+		if char_tweak
+			and char_tweak.priority_shout
+			and char_tweak.priority_shout == 'f34'
+		then
+			AchievmentManager.the_fixes_failed['cac_22'] = true
+		end
 	end
 	return origfunc(self, damage_info, ...)
 end
