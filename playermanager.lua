@@ -32,8 +32,13 @@ function PlayerManager:sync_carry_data(unit, carry_id, carry_multiplier, dye_ini
 	end
 	
 	local pl_unit = managers.network:session():peer(peer_id)
+	local hud_pnl = pl_unit and managers.hud:get_teammate_panel_by_peer(pl_unit) or nil
 	pl_unit = pl_unit and pl_unit:unit() or nil
 	if pl_unit then
 		pl_unit:movement():_destroy_current_carry_unit()
+		
+		if hud_pnl then
+			hud_pnl:remove_carry_info()
+		end
 	end
 end
