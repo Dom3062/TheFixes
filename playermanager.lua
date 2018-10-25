@@ -19,3 +19,21 @@ function PlayerManager:on_killshot(...)
 		self._message_system:the_fixes_notify_now_by_added_message(Message.OnEnemyKilled)
 	end
 end
+
+-- If someone throws a bag then remove it from his back
+local origfunc3 = PlayerManager.sync_carry_data
+function PlayerManager:sync_carry_data(unit, carry_id, carry_multiplier, dye_initiated, has_dye_pack, dye_value_multiplier, position, dir, throw_distance_multiplier_upgrade_level, zipline_unit, peer_id, ...)
+	origfunc3(self, unit, carry_id, carry_multiplier, dye_initiated, has_dye_pack, dye_value_multiplier, position, dir, throw_distance_multiplier_upgrade_level, zipline_unit, peer_id, ...)
+	
+	self._global.synced_carry[peer_id] = nil
+	
+	if managers.network:session():local_peer():id() == peer_id then
+		return
+	end
+	
+	local pl_unit = managers.network:session():peer(peer_id)
+	pl_unit = pl_unit and pl_unit:unit() or nil
+	if pl_unit then
+		pl_unit:movement():_destroy_current_carry_unit()
+	end
+end
