@@ -20,7 +20,7 @@ function PlayerManager:on_killshot(...)
 	end
 end
 
--- If someone throws a bag then remove it from his back
+-- If someone throws a bag then remove it from his back and from hud
 local origfunc3 = PlayerManager.sync_carry_data
 function PlayerManager:sync_carry_data(unit, carry_id, carry_multiplier, dye_initiated, has_dye_pack, dye_value_multiplier, position, dir, throw_distance_multiplier_upgrade_level, zipline_unit, peer_id, ...)
 	origfunc3(self, unit, carry_id, carry_multiplier, dye_initiated, has_dye_pack, dye_value_multiplier, position, dir, throw_distance_multiplier_upgrade_level, zipline_unit, peer_id, ...)
@@ -33,6 +33,11 @@ function PlayerManager:sync_carry_data(unit, carry_id, carry_multiplier, dye_ini
 	
 	local pl_unit = managers.network:session():peer(peer_id)
 	local hud_pnl = pl_unit and managers.hud:get_teammate_panel_by_peer(pl_unit) or nil
+	
+	if pl_unit then
+		managers.hud:remove_name_label_carry_info(pl_unit:id() or 0)
+	end
+	
 	pl_unit = pl_unit and pl_unit:unit() or nil
 	if pl_unit then
 		pl_unit:movement():_destroy_current_carry_unit()
