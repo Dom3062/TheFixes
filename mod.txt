@@ -164,6 +164,10 @@
 			"script_path": "vehicletweakdata.lua"
 		},
 		{
+			"hook_id": "lib/units/enemies/cop/actions/upper_body/copactionshoot",
+			"script_path": "copactionshoot.lua"
+		},
+		{
 			"hook_id": "lib/units/enemies/tank/logics/tankcoplogicattack",
 			"script_path": "tankcoplogicattack.lua"
 		},
