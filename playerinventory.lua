@@ -10,3 +10,12 @@ function PlayerInventory:get_jammer_time(...)
 	local td = tweak_data.upgrades.values.player[upg_name]
 	return (td and td[1] and td[1].duration) and td[1].duration or 6
 end
+
+
+-- Fix for a rare crash with self._feedback_interval=nil (shouldn't be 'self' at all)
+local origfunc2 = PlayerInventory._start_feedback_effect
+function PlayerInventory:_start_feedback_effect(end_time, interval, ...)
+	self._feedback_interval = interval or 1.5
+	
+	return origfunc2(self, end_time, interval, ...)
+end
