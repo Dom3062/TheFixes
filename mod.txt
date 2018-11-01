@@ -172,6 +172,10 @@
 			"script_path": "copactionshoot.lua"
 		},
 		{
+			"hook_id": "lib/units/weapons/projectiles/arrowbase",
+			"script_path": "arrowbase.lua"
+		},
+		{
 			"hook_id": "lib/units/enemies/tank/logics/tankcoplogicattack",
 			"script_path": "tankcoplogicattack.lua"
 		},
