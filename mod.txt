@@ -172,6 +172,10 @@
 			"script_path": "achievementstweakdata.lua"
 		},
 		{
+			"hook_id": "lib/units/enemies/cop/logics/coplogicattack",
+			"script_path": "coplogicattack.lua"
+		},
+		{
 			"hook_id": "lib/units/weapons/projectiles/arrowbase",
 			"script_path": "arrowbase.lua"
 		},
