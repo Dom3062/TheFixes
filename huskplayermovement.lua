@@ -7,9 +7,9 @@ function HuskPlayerMovement:anim_clbk_spawn_dropped_magazine(...)
 end
 
 -- self._vehicle=nil crash fix
-local origfunc = HuskPlayerMovement._upd_attention_driving
+local origfunc2 = HuskPlayerMovement._upd_attention_driving
 function HuskPlayerMovement:_upd_attention_driving(...)
 	if self._vehicle then
-		origfunc(self, ...)
+		origfunc2(self, ...)
 	end
 end
