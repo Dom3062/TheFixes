@@ -5,3 +5,11 @@ function HuskPlayerMovement:anim_clbk_spawn_dropped_magazine(...)
 		origfunc(self, ...)
 	end
 end
+
+-- self._vehicle=nil crash fix
+local origfunc = HuskPlayerMovement._upd_attention_driving
+function HuskPlayerMovement:_upd_attention_driving(...)
+	if self._vehicle then
+		origfunc(self, ...)
+	end
+end
