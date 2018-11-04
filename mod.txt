@@ -92,10 +92,6 @@
 			"script_path": "playermanager.lua"
 		},
 		{
-			"hook_id": "lib/managers/crimespreemanager",
-			"script_path": "crimespreemanager.lua"
-		},
-		{
 			"hook_id" : "lib/managers/localizationmanager",
 			"script_path" : "updates.lua"
 
@@ -171,6 +167,18 @@
 		{
 			"hook_id": "lib/units/enemies/cop/actions/upper_body/copactionshoot",
 			"script_path": "copactionshoot.lua"
+		},
+		{
+			"hook_id": "lib/tweak_data/achievementstweakdata",
+			"script_path": "achievementstweakdata.lua"
+		},
+		{
+			"hook_id": "lib/units/enemies/cop/logics/coplogicattack",
+			"script_path": "coplogicattack.lua"
+		},
+		{
+			"hook_id": "lib/units/weapons/projectiles/arrowbase",
+			"script_path": "arrowbase.lua"
 		},
 		{
 			"hook_id": "lib/units/enemies/tank/logics/tankcoplogicattack",

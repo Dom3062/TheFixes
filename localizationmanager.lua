@@ -32,6 +32,12 @@ function LocalizationManager:init(...)
 		achievement_cane_3_unlock = self:text('achievement_cane_3_unlock'):gsub('Rudolph','Rudelf')
 	})
 	
+	if not self:text('achievement_vit_10_desc'):match('OVERKILL') then
+		LocalizationManager:add_localized_strings({
+			achievement_vit_10_desc = self:text('achievement_vit_10_desc')..' (OVERKILL+)'
+		})
+	end
+	
 	LocalizationManager:add_localized_strings({
 		trophy_spooky_objective = self:text('trophy_spooky_objective')..' (HOST ONLY)'
 	})
