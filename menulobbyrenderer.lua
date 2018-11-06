@@ -15,6 +15,6 @@ end
 local of3 = MenuLobbyRenderer._set_player_slot
 function MenuLobbyRenderer:_set_player_slot(nr, ...)
 	if self._player_slots[nr] then
-		of3(self, ...)
+		of3(self, nr, ...)
 	end
 end
