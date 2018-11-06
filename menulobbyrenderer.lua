@@ -11,3 +11,10 @@ function MenuLobbyRenderer:set_slot_outfit(slot, ...)
 		origfunc2(self, slot, ...)
 	end
 end
+
+local of3 = MenuLobbyRenderer._set_player_slot
+function MenuLobbyRenderer:_set_player_slot(nr, ...)
+	if self._player_slots[nr] then
+		of3(self, ...)
+	end
+end
