@@ -34,9 +34,9 @@ function BlackMarketManager:equipped_mask(...)
 end
 
 -- If the deployable does not exist then make it ammo bag
-local origfunc = BlackMarketManager.equipped_deployable
+local origfunc3 = BlackMarketManager.equipped_deployable
 function BlackMarketManager:equipped_deployable(slot, ...)
-	local res = origfunc(self, slot, ...)
+	local res = origfunc3(self, slot, ...)
 	
 	if not tweak_data.equipments[res] then
 		res = 'ammo_bag'
