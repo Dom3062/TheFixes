@@ -181,6 +181,10 @@
 			"script_path": "coplogicattack.lua"
 		},
 		{
+			"hook_id": "lib/units/props/securitycamera",
+			"script_path": "securitycamera.lua"
+		},
+		{
 			"hook_id": "lib/units/weapons/projectiles/arrowbase",
 			"script_path": "arrowbase.lua"
 		},
