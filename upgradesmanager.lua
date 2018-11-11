@@ -10,7 +10,7 @@ local origfunc2 = UpgradesManager.aquire
 function UpgradesManager:aquire(id, ...)
 	local next_acquired = false
 	local td = tweak_data.upgrades.definitions[id]
-	if td.the_fixes_next
+	if td and td.the_fixes_next
 		and self:aquired(td.the_fixes_next)
 	then
 		self:unaquire(td.the_fixes_next, td.the_fixes_next_identifier)
