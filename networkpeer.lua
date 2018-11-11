@@ -16,10 +16,10 @@ function NetworkPeer:init(...)
 		and MenuCallbackHandler.build_mods_list
 	then
 		self._mods = self._mods or {}
-		for k,v in ipairs(MenuCallbackHandler:build_mods_list()) do
+		for k,v in ipairs(MenuCallbackHandler:build_mods_list() or {}) do
 			table.insert(self._mods, {
-				id = v[2],
-				name = v[1]
+				id = v[2] or '',
+				name = v[1] or ''
 			})
 		end
 	end
