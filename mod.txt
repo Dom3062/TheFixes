@@ -125,6 +125,10 @@
 			"script_path": "sentrygunbase.lua"
 		},
 		{
+			"hook_id": "lib/units/weapons/raycastweaponbase",
+			"script_path": "raycastweaponbase.lua"
+		},
+		{
 			"hook_id": "lib/managers/skirmishmanager",
 			"script_path": "skirmishmanager.lua"
 		},
