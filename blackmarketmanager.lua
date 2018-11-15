@@ -83,7 +83,7 @@ end
 
 -- Custom van skins ? crash fix
 local van_skin_orig = BlackMarketManager.equipped_van_skin
-BlackMarketManager:equipped_van_skin(...)
+function BlackMarketManager:equipped_van_skin(...)
 	local res = van_skin_orig(self, ...) or ''
 	
 	if not tweak_data.van.skins[res] then
