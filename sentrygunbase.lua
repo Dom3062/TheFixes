@@ -3,6 +3,10 @@ local origfunc = SentryGunBase.on_picked_up
 function SentryGunBase.on_picked_up(sentry_type, ammo_ratio, sentry_uid, ...)
 	
 	local player_unit = managers.player:player_unit()
+	if not player_unit then
+		return
+	end
+	
 	local deployement_cost = player_unit:equipment() and player_unit:equipment():get_sentry_deployement_cost(sentry_uid)
 	
 	local current = {}
