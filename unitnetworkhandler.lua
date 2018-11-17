@@ -9,7 +9,7 @@ end
 local origfunc2 = UnitNetworkHandler.sync_tear_gas_grenade_properties
 function UnitNetworkHandler:sync_tear_gas_grenade_properties(grenade, ...)
 	if grenade and grenade:base() then
-		return origfunc(self, grenade, ...)
+		return origfunc2(self, grenade, ...)
 	end
 end
 
