@@ -17,6 +17,11 @@ function TradeManager:criminal_respawn(pos, rotation, respawn_criminal, ...)
 		end
 	end
 	
+	local peer = managers.network:session():peer(peer_id)
+	if peer then
+		peer._grenades = 0
+	end
+	
 	if managers.player:has_category_upgrade("player", "damage_control_auto_shrug")
 		and managers.player:upgrade_value("player", "damage_control_auto_shrug")
 		and managers.player._coroutine_mgr
