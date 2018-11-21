@@ -43,3 +43,14 @@ function CopDamage:stun_hit(...)
 	
 	origfunc4(self, ...)
 end
+
+
+-- Fix for crits in stealth
+local roll_crit_orig = CopDamage.roll_critical_hit
+function CopDamage:roll_critical_hit(attack_data, ...)
+	if self._unit:movement():cool() then
+		attack_data.damage = self._HEALTH_INIT
+	end
+	
+	return roll_crit_orig(self, attack_data, ...)
+end
