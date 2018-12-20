@@ -1,3 +1,5 @@
+if _G.Poser then return end
+
 local origfunc = MenuSceneManager.set_character_deployable
 function MenuSceneManager:set_character_deployable(deployable_id, unit, peer_id, ...)
 	if not self._deployable_equipped[peer_id]
