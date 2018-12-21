@@ -92,3 +92,15 @@ function BlackMarketManager:equipped_van_skin(...)
 	
 	return res
 end
+
+-- https://steamcommunity.com/app/218620/discussions/14/1744479063999467293/
+local acq_weap_plm_orig = BlackMarketManager.on_aquired_weapon_platform
+function BlackMarketManager:on_aquired_weapon_platform(upgrade, ...)
+	if upgrade
+		and upgrade.weapon_id
+		and tweak_data.weapon[upgrade.weapon_id]
+		and tweak_data.weapon[upgrade.weapon_id].use_data
+	then
+		acq_weap_plm_orig(self, upgrade, ...)
+	end
+end
