@@ -1,7 +1,9 @@
 -- Fix for Gambler's ammo sharing: always at least 1 bullet
 local origfunc = AmmoClip.sync_net_event
 function AmmoClip:sync_net_event(event, peer, ...)
-	if event == AmmoClip.EVENT_IDS.bonnie_share_ammo then
+	if event == AmmoClip.EVENT_IDS.bonnie_share_ammo
+		and (not TheFixes or TheFixes.gambler)
+	then
 		local player = managers.player:local_player()
 
 		if not alive(player) or not player:character_damage() or player:character_damage():is_downed() or player:character_damage():dead() then

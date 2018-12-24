@@ -4,7 +4,9 @@
 local origfunc = CopDamage._on_damage_received
 function CopDamage:_on_damage_received(damage_info, ...)
 	if damage_info.result.type == 'death' then
-		if damage_info.is_fire_dot_damage then
+		if damage_info.is_fire_dot_damage
+			and (not TheFixes or TheFixes.fire_dot)
+		then
 			local data = {
 				name = self._unit:base()._tweak_table,
 				stats_name = self._unit:base()._stats_name,

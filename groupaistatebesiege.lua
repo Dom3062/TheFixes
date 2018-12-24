@@ -23,7 +23,9 @@ function GroupAIStateBesiege:_get_special_unit_type_count(special_type, ...)
 		fixed = true
 	end
 	
-	if not fixed and special_type == 'tank' then
+	if not fixed and special_type == 'tank'
+		and (not TheFixes or TheFixes.dozers_counting)
+	then
 		local res = origfunc2(self, 'tank', ...) or 0
 		res = res + (origfunc2(self, 'tank_mini', ...) or 0)
 		res = res + (origfunc2(self, 'tank_medic', ...) or 0)
