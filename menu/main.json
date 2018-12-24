@@ -1,0 +1,10 @@
+{
+	"menu_id" : "the_fixes_opt",
+	"title" : "the_fixes",
+	"back_callback" : "the_fixes_save",
+	"parent_menu_id" : "blt_options",
+	"items" : 
+	[
+		
+	]
+}

@@ -1,0 +1,22 @@
+{
+	"the_fixes":"The Fixes",
+	
+	"TF_fire_dot_title":"Fire DOT stats fix",
+	"TF_fire_dot_desc":"Fixes the counting of kills by fire damage over time",
+	"TF_shotgun_dozer_face_title":"Shotguns prioritize dozer's face",
+	"TF_shotgun_dozer_face_desc":"If one shotgun pellet hits an enemy, the whole damage is dealt.\nThis fix makes the game prioritize the pellet that hit dozer's faceplate over other pellets.",
+	"TF_gambler_title":"Fix Gambler's ammo sharing",
+	"TF_gambler_desc":"This makes sure you receive at least 1 bullet from someone's Gambler ammo sharing ability.",
+	"TF_shotgun_push_title":"Shotgun push fix",
+	"TF_shotgun_push_desc":"Fixes clients launching enemies far away using shotguns. Disable if you use a better fix.",
+	"TF_dozers_counting_title":"Bulldozers counting fix",
+	"TF_dozers_counting_desc":"Makes the game count medic and minigun dozers as dozers and apply spawn limits correctly.",
+	"TF_shotgun_turret_title":"Shotguns prioritize turret's weak spots",
+	"TF_shotgun_turret_desc":"If one shotgun pellet hits an enemy, the whole damage is dealt.\nThis fix makes the game prioritize the pellet that hit turret's weak spot over other pellets.",
+	"TF_dozers_walk_title":"Bulldozers walk near players",
+	"TF_dozers_walk_desc":"Makes dozers walk (not run) when near players",
+	"TF_cops_reload_title":"Cops reload when moving",
+	"TF_cops_reload_desc":"Allows cops to reload when they are moving",
+	"TF_instant_quit_title":"Kill the game process on quit",
+	"TF_instant_quit_desc":"Kills the game process when you click 'Quit' on Windows. Fixes infinite exitting and infinite 'running' status."
+}
