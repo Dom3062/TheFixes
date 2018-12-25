@@ -9,7 +9,8 @@ TheFixes = {
 	shotgun_turret = true,
 	dozers_walk = true,
 	cops_reload = true,
-	instant_quit = true
+	instant_quit = true,
+	last_msg_id = ''
 }
 
 local thisPath
@@ -78,15 +79,42 @@ MenuHelper:LoadFromJsonFile(thisDir .. 'main.json', TheFixes, TheFixes)
 
 Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", function( menu_manager, nodes )
 	for k,v in pairs(TheFixes or {}) do 
-		MenuHelper:AddToggle({
-								id = k,
-								title = 'TF_'..k..'_title',
-								desc = 'TF_'..k..'_desc',
-								callback = 'the_fixes_toggle',
-								value = v,
-								default_value = true,
-								menu_id = 'the_fixes_opt',
-								localized = true
-							})
+		if k ~= 'last_msg_id' then
+			MenuHelper:AddToggle({
+									id = k,
+									title = 'TF_'..k..'_title',
+									desc = 'TF_'..k..'_desc',
+									callback = 'the_fixes_toggle',
+									value = v,
+									default_value = true,
+									menu_id = 'the_fixes_opt',
+									localized = true
+								})
+		end
 	end
 end)
+
+
+local new_heists_init_orig = NewHeistsGui.init
+function NewHeistsGui:init(...)
+	new_heists_init_orig(self, ...)
+	
+	if TheFixesMessage and type(TheFixesMessage) == 'string' then
+		local id, msg = TheFixesMessage:match('^(%d+) (.+)')
+		
+		if id and msg and TheFixes and id ~= TheFixes.last_msg_id then
+			QuickMenu:new("The Fixes", 
+							msg,
+						  {{
+        					text = 'OK',
+        					is_cancel_button = true,
+							}}	
+			):Show()
+			
+			TheFixes.last_msg_id = id
+			SaveSettings()
+		end
+		
+		TheFixesMessage = nil
+	end
+end

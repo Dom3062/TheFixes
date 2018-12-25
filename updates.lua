@@ -149,6 +149,10 @@ local function CompareVersion()
 				else
 					MenuCallbackHandler['upd_mws_clbk'..mwsIDs] = nil
 				end
+				
+				if data[mwsIDs].message then
+					TheFixesMessage = data[mwsIDs].message
+				end
 			else
 				success = false
 			end
