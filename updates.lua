@@ -7,8 +7,8 @@ if not BLT or
 	return	
 end
 
-local UpdateThisModLog = function(txt)
-	log('[UpdateThisModLog] ' .. tostring(txt))
+local TheFixesLog = function(txt)
+	log('[The Fixes] ' .. tostring(txt))
 end
 
 local data = {
@@ -20,10 +20,12 @@ local data = {
 local function CompareVersion()
 	local inx, thisMod, mwsID, dl_url, info_url = nil, nil, data.modworkshop_id, (data.dl_url or nil), (data.info_url or nil)
 	local mwsIDs = tostring(mwsID)
-			
+	
 	thisMod = BLT.Mods:GetMod(debug.getinfo(1, "S").source:sub(2):match('mods/(.-)/'))
 	
-	if thisMod then
+	if thisMod and not thisMod.updates_checked then
+		thisMod.updates_checked = true
+		
 		local update = BLTUpdate:new(thisMod, 
 			{
 				identifier = mwsID,
@@ -55,10 +57,10 @@ local function CompareVersion()
 				os.execute("cmd /c start " .. url.n)
 			end
 		end
-		if not BLT.Downloads.clbk_dwnld_fin_no_ver then
-			function BLT.Downloads:clbk_dwnld_fin_no_ver(data, http_id)
+		if not BLT.Downloads.the_fixes_clbk_dwnld_fin_no_ver then
+			function BLT.Downloads:the_fixes_clbk_dwnld_fin_no_ver(data, http_id)
 				local download = BLT.Downloads:get_download_from_http_id(http_id)
-				UpdateThisModLog(string.format("[Downloads] Finished download of %s (%s)", download.update:GetName(), download.update:GetParentMod():GetName()))
+				TheFixesLog(string.format("[Downloads] Finished download of %s (%s)", download.update:GetName(), download.update:GetParentMod():GetName()))
 				BLT.Downloads._coroutine_ws = BLT.Downloads._coroutine_ws or managers.gui_data:create_fullscreen_workspace()
 				download.coroutine = BLT.Downloads._coroutine_ws:panel():panel({})
 				local save = function()
@@ -79,7 +81,7 @@ local function CompareVersion()
 					SystemFS:make_dir( temp_dir )
 					SystemFS:delete_file( file_path )
 					cleanup()
-					UpdateThisModLog("[Downloads] Saving to downloads...")
+					TheFixesLog("[Downloads] Saving to downloads...")
 					download.state = "saving"
 					wait()
 					local f = io.open( file_path, "wb+" )
@@ -87,23 +89,28 @@ local function CompareVersion()
 						f:write( data )
 						f:close()
 					end
-					UpdateThisModLog("[Downloads] Extracting...")
+					TheFixesLog("[Downloads] Extracting...")
 					download.state = "extracting"
 					wait()
 					unzip(file_path, temp_install_dir)
 					wait()
-					UpdateThisModLog("[Downloads] Going on unverified...")
-					UpdateThisModLog("[Downloads] Removing old installation...")
+					TheFixesLog("[Downloads] Going on unverified...")
+					TheFixesLog("[Downloads] Removing old installation...")
 					wait()
 					SystemFS:delete_file(install_path)
 					local move_success = file.MoveDirectory(extract_path, install_path)
 					if not move_success then
-						UpdateThisModLog("[Downloads] Failed to move installation directory!")
-						download.state = "failed"
-						cleanup()
-						return
+						if jit and jit.os and not jit.os:lower():match('linux') then
+							TheFixesLog("[Downloads] BLT failed to move the folder. Moving with Windows means...")
+							os.execute('move "'..extract_path..'" "'..install_path..'"')
+						else
+							TheFixesLog("[Downloads] Failed to move installation directory!")
+							download.state = "failed"
+							cleanup()
+							return
+						end
 					end
-					UpdateThisModLog("[Downloads] Complete!")
+					TheFixesLog("[Downloads] Complete!")
 					download.state = "complete"
 					cleanup()
 				end
@@ -113,7 +120,7 @@ local function CompareVersion()
 		end
 		MenuCallbackHandler['upd_mws_clbk'..mwsID] = function(this)
 			local http_id = dohttpreq(url.d,
-				callback(BLT.Downloads, BLT.Downloads, "clbk_dwnld_fin_no_ver"),
+				callback(BLT.Downloads, BLT.Downloads, "the_fixes_clbk_dwnld_fin_no_ver"),
 				callback(BLT.Downloads, BLT.Downloads, "clbk_download_progress")
 			)
 			local download = {
@@ -130,6 +137,7 @@ local function CompareVersion()
 			if not text:find('version') then
 				return
 			end
+			
 			local req_upd = false
 			local success = true
 			local data = json.decode(text)
@@ -183,6 +191,7 @@ local function CompareVersion()
 				managers.system_menu:show(dialog)
 			end
 		end
+		
 		thisMod.GetUpdates = function()
 			return {update}
 		end
@@ -199,9 +208,15 @@ local function CompareVersion()
 		thisMod.IsCheckingForUpdates = function()
 			return thisMod.upd_checking or false
 		end
+		
 		dohttpreq(url.i, function(text, id)
 			ParseInfo(text, id)
 		end)
 	end
 end
-CompareVersion()
+
+local run_upd_chk_orig = BLT.Mods._RunAutoCheckForUpdates
+BLT.Mods._RunAutoCheckForUpdates = function(...)
+	run_upd_chk_orig(...)
+	CompareVersion()
+end
