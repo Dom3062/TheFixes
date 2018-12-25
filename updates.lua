@@ -71,7 +71,11 @@ local function CompareVersion()
 							coroutine.yield()
 						end
 					end
-					local temp_dir = Application:nice_path( download.update:GetInstallDirectory() .. "_temp" )
+					local install_dir = download.update:GetInstallDirectory()
+					local temp_dir = Application:nice_path( install_dir .. "_temp" )
+					if install_dir == BLTModManager.Constants:ModsDirectory() then
+						temp_dir = Application:nice_path( BLTModManager.Constants:DownloadsDirectory() .. "_temp" )
+					end
 					local file_path = Application:nice_path( BLTModManager.Constants:DownloadsDirectory() .. tostring(download.update:GetId()) .. ".zip" )
 					local temp_install_dir = Application:nice_path( temp_dir .. "/" .. download.update:GetInstallFolder() )
 					local install_path = Application:nice_path( download.update:GetInstallDirectory() .. download.update:GetInstallFolder() )
@@ -99,7 +103,14 @@ local function CompareVersion()
 					TheFixesLog("[Downloads] Going on unverified...")
 					TheFixesLog("[Downloads] Removing old installation...")
 					wait()
-					SystemFS:delete_file(install_path)
+					
+					local old_install_path = install_path .. '_old'
+					if file.MoveDirectory( install_path, old_install_path ) then
+						SystemFS:delete_file( old_install_path )
+					else
+						SystemFS:delete_file( install_path )
+					end
+					
 					local move_success = file.MoveDirectory(extract_path, install_path)
 					if not move_success then
 						if jit and jit.os and not jit.os:lower():match('linux') then
@@ -112,6 +123,7 @@ local function CompareVersion()
 							return
 						end
 					end
+					
 					TheFixesLog("[Downloads] Complete!")
 					download.state = "complete"
 					cleanup()
