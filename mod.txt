@@ -165,10 +165,6 @@
 			"script_path": "civilianlogictravel.lua"
 		},
 		{
-			"hook_id": "lib/tweak_data/vehicletweakdata",
-			"script_path": "vehicletweakdata.lua"
-		},
-		{
 			"hook_id": "lib/units/enemies/cop/actions/upper_body/copactionshoot",
 			"script_path": "copactionshoot.lua"
 		},
