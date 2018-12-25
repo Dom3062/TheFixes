@@ -161,6 +161,10 @@ local function CompareVersion()
 				if data[mwsIDs].message then
 					TheFixesMessage = data[mwsIDs].message
 				end
+				
+				if TheFixes and TheFixes.msg_func then
+					TheFixes.msg_func()
+				end
 			else
 				success = false
 			end

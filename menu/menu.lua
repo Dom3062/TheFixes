@@ -78,8 +78,10 @@ end
 MenuHelper:LoadFromJsonFile(thisDir .. 'main.json', TheFixes, TheFixes)
 
 Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", function( menu_manager, nodes )
+	local exclude = { last_msg_id = true, msg_func = true } 
+	
 	for k,v in pairs(TheFixes or {}) do 
-		if k ~= 'last_msg_id' then
+		if not exclude[k] then
 			MenuHelper:AddToggle({
 									id = k,
 									title = 'TF_'..k..'_title',
@@ -95,9 +97,8 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", func
 end)
 
 
-local new_heists_init_orig = NewHeistsGui.init
-function NewHeistsGui:init(...)
-	new_heists_init_orig(self, ...)
+TheFixes.msg_func = function()
+	if CopDamage then return end
 	
 	if TheFixesMessage and type(TheFixesMessage) == 'string' then
 		local id, msg = TheFixesMessage:match('^(%d+) (.+)')
@@ -106,8 +107,8 @@ function NewHeistsGui:init(...)
 			QuickMenu:new("The Fixes", 
 							msg,
 						  {{
-        					text = 'OK',
-        					is_cancel_button = true,
+							text = 'OK',
+							is_cancel_button = true
 							}}	
 			):Show()
 			
