@@ -56,12 +56,3 @@ function CopDamage:roll_critical_hit(attack_data, ...)
 	
 	return roll_crit_orig(self, attack_data, ...)
 end
-
-
-local sync_dmg_expl_orig = CopDamage.sync_damage_explosion
-function CopDamage:sync_damage_explosion(attacker_unit, damage_percent, ...)
-	local damage = damage_percent * self._HEALTH_INIT_PRECENT
-	damage, damage_percent = self:_apply_min_health_limit(damage, damage_percent)
-
-	return sync_dmg_expl_orig(self, attacker_unit, damage_percent, ...)
-end
