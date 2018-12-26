@@ -13,3 +13,9 @@ function HuskPlayerMovement:_upd_attention_driving(...)
 		origfunc2(self, ...)
 	end
 end
+
+
+local sync_melee_orig = HuskPlayerMovement.sync_melee_start
+function HuskPlayerMovement:sync_melee_start(hand, ...)
+	sync_melee_orig(self, hand or 0, ...)
+end
