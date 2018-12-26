@@ -221,6 +221,10 @@
 			"script_path": "menu/menu.lua"
 		},
 		{
+			"hook_id": "lib/units/beings/player/huskplayerinventory",
+			"script_path": "huskplayerinventory.lua"
+		},
+		{
 			"hook_id": "lib/network/base/clientnetworksession",
 			"script_path": "clientnetworksession.lua"
 		},
