@@ -40,6 +40,8 @@ function ElementAreaTrigger:project_instigators(...)
 							if v:damage():has_sequence("secured") then
 								v:damage():run_sequence_simple("secured")
 							end
+							
+							v:set_slot(0)
 						end
 					end
 				end
