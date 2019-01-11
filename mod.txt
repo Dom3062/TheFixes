@@ -229,6 +229,10 @@
 			"script_path": "clientnetworksession.lua"
 		},
 		{
+			"hook_id": "lib/managers/mission/elementareatrigger",
+			"script_path": "elementareatrigger.lua"
+		},
+		{
 			"hook_id": "lib/managers/group_ai_states/groupaistatebase",
 			"script_path": "groupaistatebase.lua"
 		}
