@@ -104,3 +104,18 @@ function BlackMarketManager:on_aquired_weapon_platform(upgrade, ...)
 		acq_weap_plm_orig(self, upgrade, ...)
 	end
 end
+
+
+local add_crafted_to_inv_orig = BlackMarketManager.add_crafted_weapon_blueprint_to_inventory
+function BlackMarketManager:add_crafted_weapon_blueprint_to_inventory(category, slot, ...)
+	if not self._global.crafted_items[category] or not self._global.crafted_items[category][slot]
+		or not self._global.crafted_items[category][slot].blueprint
+	then
+		if self._global.crafted_items[category] then
+			self._global.crafted_items[category][slot] = nil
+		end
+		return
+	end
+	
+	add_crafted_to_inv_orig(self, category, slot, ...)
+end
