@@ -11,3 +11,12 @@ function CopLogicAttack._upd_aim(data, my_data, ...)
 	
 	return origfunc(data, my_data, ...)
 end
+
+-- coplogicattack.lua:1259: attempt to index field 'chatter' (a nil value)
+local aim_allow_fire_orig = CopLogicAttack.aim_allow_fire
+function CopLogicAttack.aim_allow_fire(shoot, aim, data, ...)
+	if shoot then
+		data.char_tweak.chatter = data.char_tweak.chatter or {}
+	end
+	return aim_allow_fire_orig(shoot, aim, data, ...)
+end
