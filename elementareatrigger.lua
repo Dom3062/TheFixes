@@ -1,9 +1,14 @@
+if Network:is_client() then
+	return
+end
+
+if not Global.game_settings or Global.game_settings.level_id ~= 'mallcrasher' then
+	return
+end
+
 local prj_inst_orig = ElementAreaTrigger.project_instigators
 function ElementAreaTrigger:project_instigators(...)
-	if self._id ~= 300327
-		or not Network:is_server()
-		or managers.job:current_level_id() ~= 'mallcrasher'
-	then
+	if self._id ~= 300327 then
 		return prj_inst_orig(self, ...)
 	end
 
