@@ -13,6 +13,13 @@ function UnitNetworkHandler:sync_tear_gas_grenade_properties(grenade, ...)
 	end
 end
 
+local sync_enter_vehicle_orig = UnitNetworkHandler.sync_enter_vehicle_host
+function UnitNetworkHandler:sync_enter_vehicle_host(vehicle, seat_name, peer_id, player, ...)
+	if seat_name and peer_id and player then
+		sync_enter_vehicle_orig(self, vehicle, seat_name, peer_id, player, ...)
+	end
+end
+
 
 local orig_names = {
 	'sync_sentrygun_dynamic',
