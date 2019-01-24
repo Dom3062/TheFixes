@@ -229,8 +229,8 @@
 			"script_path": "clientnetworksession.lua"
 		},
 		{
-			"hook_id": "lib/managers/mission/elementareatrigger",
-			"script_path": "elementareatrigger.lua"
+			"hook_id": "lib/setups/gamesetup",
+			"script_path": "gamesetup.lua"
 		},
 		{
 			"hook_id": "lib/managers/crimenetmanager",
