@@ -10,7 +10,9 @@ local init_fin_orig = GameSetup.init_finalize
 function GameSetup:init_finalize(...)
 	init_fin_orig(self, ...)
 	
-	local levelFile = thisDir..'levels/'..(managers.job:current_level_id() or 'a')..'.lua'
+	local id = (managers.job:current_level_id() or 'all')
+	id = id:gsub('_night$', '')
+	local levelFile = thisDir..'levels/'..id..'.lua'
 
 	local f,err = io.open(levelFile, 'r')
 	if f then
