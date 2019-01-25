@@ -213,10 +213,6 @@
 			"script_path": "setup.lua"
 		},
 		{
-			"hook_id": "lib/managers/platformmanager",
-			"script_path": "platformmanager.lua"
-		},
-		{
 			"hook_id": "lib/managers/menumanager",
 			"script_path": "menu/menu.lua"
 		},
