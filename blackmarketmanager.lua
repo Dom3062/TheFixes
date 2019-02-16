@@ -33,13 +33,17 @@ function BlackMarketManager:equipped_mask(...)
 	return res or 'mask_not_found'
 end
 
--- If the deployable does not exist then make it ammo bag
+-- Handle a non-existent deployable
 local origfunc3 = BlackMarketManager.equipped_deployable
 function BlackMarketManager:equipped_deployable(slot, ...)
 	local res = origfunc3(self, slot, ...)
 	
 	if not tweak_data.equipments[res] then
-		res = 'ammo_bag'
+		return nil
+	end
+	
+	if slot == 2 and not managers.player:has_category_upgrade("player", "second_deployable") then
+		return nil
 	end
 	
 	return res
