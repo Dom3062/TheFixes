@@ -1,3 +1,8 @@
+TheFixesPreventer = TheFixesPreventer or {}
+if TheFixesPreventer.heist_watchdogs_driver then
+	return
+end
+
 -- This fixes the issue when you can kill the escape driver and activate the chopper
 
 if Network:is_client() then

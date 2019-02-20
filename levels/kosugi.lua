@@ -1,3 +1,8 @@
+TheFixesPreventer = TheFixesPreventer or {}
+if TheFixesPreventer.heist_shadow_raid_roof then
+	return
+end
+
 if Network:is_client() then
 	return
 end

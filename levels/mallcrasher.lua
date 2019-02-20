@@ -1,3 +1,8 @@
+TheFixesPreventer = TheFixesPreventer or {}
+if TheFixesPreventer.heist_mallcrasher_secure_zone then
+	return
+end
+
 if Network:is_client() then
 	return
 end

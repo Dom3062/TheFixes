@@ -1,3 +1,8 @@
+TheFixesPreventer = TheFixesPreventer or {}
+if TheFixesPreventer.heist_framframe2_bags_teleport then
+	return
+end
+
 if Network:is_client() then
 	return
 end

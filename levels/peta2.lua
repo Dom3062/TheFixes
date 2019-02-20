@@ -1,3 +1,8 @@
+TheFixesPreventer = TheFixesPreventer or {}
+if TheFixesPreventer.heist_goats2_multiple_assets then
+	return
+end
+
 -- This is supposed to fix the issue where assets spawn multiple times
 local on_exec_orig = ElementSpawnDeployable.on_executed
 local spawned = {}
