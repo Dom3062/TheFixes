@@ -1,17 +1,20 @@
--- Prevent the crash on Birth of Sky
-local origfunc = GroupAIStateBesiege._check_phalanx_group_has_spawned
-function GroupAIStateBesiege:_check_phalanx_group_has_spawned(...)
-	if self._phalanx_spawn_group
-		and self._phalanx_spawn_group.has_spawned
-		and not self._phalanx_spawn_group.set_to_phalanx_group_obj
-	then
-		for i, group_unit in pairs(self._phalanx_spawn_group.units) do
-			if not group_unit.unit then
-				self._phalanx_spawn_group.units[i] = nil
+TheFixesPreventer = TheFixesPreventer or {}
+if not TheFixesPreventer.crash_winters_bos_aistatebesiege then
+	-- Prevent the crash on Birth of Sky
+	local origfunc = GroupAIStateBesiege._check_phalanx_group_has_spawned
+	function GroupAIStateBesiege:_check_phalanx_group_has_spawned(...)
+		if self._phalanx_spawn_group
+			and self._phalanx_spawn_group.has_spawned
+			and not self._phalanx_spawn_group.set_to_phalanx_group_obj
+		then
+			for i, group_unit in pairs(self._phalanx_spawn_group.units) do
+				if not group_unit.unit then
+					self._phalanx_spawn_group.units[i] = nil
+				end
 			end
 		end
+		origfunc(self, ...)
 	end
-	origfunc(self, ...)
 end
 
 
@@ -35,22 +38,24 @@ function GroupAIStateBesiege:_get_special_unit_type_count(special_type, ...)
 	return origfunc2(self, special_type, ...)
 end
 
-
-local perf_gr_spwn_orig = GroupAIStateBesiege._perform_group_spawning
-function GroupAIStateBesiege:_perform_group_spawning(spawn_task, ...)
-	for u_type_name, spawn_info in pairs(spawn_task.units_remaining) do
-		local category = tweak_data.group_ai.unit_categories[u_type_name]
-		if category and category.unit_types then
-			local u = category.unit_types[tweak_data.levels:get_ai_group_type()]
-			if not u then
+TheFixesPreventer = TheFixesPreventer or {}
+if not TheFixesPreventer.crash_no_unit_type_aistatebesiege then
+	local perf_gr_spwn_orig = GroupAIStateBesiege._perform_group_spawning
+	function GroupAIStateBesiege:_perform_group_spawning(spawn_task, ...)
+		for u_type_name, spawn_info in pairs(spawn_task.units_remaining) do
+			local category = tweak_data.group_ai.unit_categories[u_type_name]
+			if category and category.unit_types then
+				local u = category.unit_types[tweak_data.levels:get_ai_group_type()]
+				if not u then
+					spawn_task.units_remaining[u_type_name] = nil
+				end
+			else
 				spawn_task.units_remaining[u_type_name] = nil
 			end
-		else
-			spawn_task.units_remaining[u_type_name] = nil
 		end
+		
+		return perf_gr_spwn_orig(self, spawn_task, ...)
 	end
-	
-	return perf_gr_spwn_orig(self, spawn_task, ...)
 end
 
 

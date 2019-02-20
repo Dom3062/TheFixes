@@ -8,14 +8,17 @@ if BLT and BLT.Mods then
 	end
 end
 
--- Make civilians go straight to the player they are following
-local origfunc = CivilianLogicTravel._determine_exact_destination
-function CivilianLogicTravel._determine_exact_destination(data, objective, ...)
-	if objective
-		and objective.type == 'follow'
-		and objective.follow_unit
-	then
-		return objective.follow_unit:movement():nav_tracker():field_position()
+TheFixesPreventer = TheFixesPreventer or {}
+if not TheFixesPreventer.civvie_goes_to_player then
+	-- Make civilians go straight to the player they are following
+	local origfunc = CivilianLogicTravel._determine_exact_destination
+	function CivilianLogicTravel._determine_exact_destination(data, objective, ...)
+		if objective
+			and objective.type == 'follow'
+			and objective.follow_unit
+		then
+			return objective.follow_unit:movement():nav_tracker():field_position()
+		end
+		return origfunc(data, objective, ...)
 	end
-	return origfunc(data, objective, ...)
 end

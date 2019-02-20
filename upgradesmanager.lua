@@ -1,9 +1,11 @@
-local origfunc = UpgradesManager.load
-function UpgradesManager:load(data, ...)
-	data.UpgradesManager = data.UpgradesManager or {automanage=false, progress = {0,0,0,0}, target_tree=0, disabled_visual_upgrades={}}
-	return origfunc(self, data, ...)
+TheFixesPreventer = TheFixesPreventer or {}
+if not TheFixesPreventer.crash_load_upgradesman then
+	local origfunc = UpgradesManager.load
+	function UpgradesManager:load(data, ...)
+		data.UpgradesManager = data.UpgradesManager or {automanage=false, progress = {0,0,0,0}, target_tree=0, disabled_visual_upgrades={}}
+		return origfunc(self, data, ...)
+	end
 end
-
 
 -- Avoid acquiring certain upgrades when the player has better ones
 local origfunc2 = UpgradesManager.aquire
