@@ -18,6 +18,8 @@ local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
 	
+	TheFixesPreventer = TheFixesPreventer or {}
+	
 	if not TheFixesPreventer.achi_red_button_localeman then
 	LocalizationManager:add_localized_strings({
 		achievement_des_9_desc = self:text('achievement_des_9_desc')..' (OVERKILL+)'
