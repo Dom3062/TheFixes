@@ -23,15 +23,3 @@ if not TheFixesPreventer.crash_feedback_playerinv then
 		return origfunc2(self, end_time, interval, ...)
 	end
 end
-
-if not TheFixesPreventer.crash_align_place_playerinv then
-	local align_place_orig = PlayerInventory._align_place
-	function PlayerInventory:_align_place(...)
-		local res1, res2 = align_place_orig(self, ...)
-		if res1 and res2 then
-			return res1, res2
-		else
-			return res1 or {}
-		end
-	end
-end
