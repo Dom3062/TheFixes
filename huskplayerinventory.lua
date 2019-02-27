@@ -7,3 +7,14 @@ if not TheFixesPreventer.crash_add_by_blueprint_huskplayerinv then
 		end
 	end
 end
+
+if not TheFixesPreventer.crash_align_place_huskplayerinv then
+	function HuskPlayerInventory:_align_place(...)
+		local res1, res2 = HuskPlayerInventory.super._align_place(self, ...)
+		if res1 and res2 then
+			return res1, res2
+		else
+			return res1 or {}
+		end
+	end
+ end
