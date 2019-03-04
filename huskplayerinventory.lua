@@ -13,8 +13,10 @@ if not TheFixesPreventer.crash_align_place_huskplayerinv then
 		local res1, res2 = HuskPlayerInventory.super._align_place(self, ...)
 		if res1 and res2 then
 			return res1, res2
-		else
+		elseif debug.getinfo(2).name == 'add_unit_by_factory_blueprint' then
 			return res1 or {}
+		else
+			return res1
 		end
 	end
  end
