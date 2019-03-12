@@ -237,6 +237,10 @@
 			"script_path": "basenetworkhandler.lua"
 		},
 		{
+			"hook_id": "lib/units/vehicles/vithelicoptersync",
+			"script_path": "vithelicoptersync.lua"
+		},
+		{
 			"hook_id": "lib/managers/weaponfactorymanager",
 			"script_path": "weaponfactorymanager.lua"
 		},
