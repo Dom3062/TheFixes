@@ -135,3 +135,17 @@ if not TheFixesPreventer.crash_add_to_inv_blackmarket then
 		add_crafted_to_inv_orig(self, category, slot, ...)
 	end
 end
+
+if not TheFixesPreventer.crash_get_char_by_name_blackmarket then
+	-- menuscenemanager.lua:1219: attempt to index a nil value (modding crash)
+	local get_char_by_name_orig = BlackMarketManager.get_character_id_by_character_name
+	function BlackMarketManager:get_character_id_by_character_name(...)
+		local res = get_char_by_name_orig(self, ...)
+		
+		if not tweak_data.blackmarket.characters[res] then
+			return 'ai_dallas'
+		end
+		
+		return res
+	end
+end
