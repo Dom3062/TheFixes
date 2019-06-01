@@ -233,8 +233,14 @@ local function CompareVersion()
 	end
 end
 
+local info_saved = false
 local run_upd_chk_orig = BLT.Mods._RunAutoCheckForUpdates
 BLT.Mods._RunAutoCheckForUpdates = function(...)
 	run_upd_chk_orig(...)
 	CompareVersion()
+	
+	if not info_saved and TheFixes.dump_info then
+		TheFixes.dump_info()
+		info_saved = true
+	end
 end
