@@ -132,11 +132,22 @@ TheFixes.dump_info = function()
 		local counter = 1
 		for k,v in pairs(TheFixesPreventer or {}) do
 			if counter == 1 then
-				info = info..'\nFixes prevented from loading:\n'..'1 '..k..'\n'
+				info = info..'\nDisabled fixes:\n'..'1 '..k..'\n'
 			else
 				info = info..counter..' '..k..'\n'
 			end
 			counter = counter + 1
+		end
+		
+		for k,v in pairs(TheFixes or {}) do
+			if type(v) == 'boolean' and not v then
+				if counter == 1 then
+					info = info..'\nDisabled fixes:\n'..'1 '..k..'\n'
+				else
+					info = info..counter..' '..k..'\n'
+				end
+				counter = counter + 1
+			end
 		end
 		
 		for k,v in pairs(SystemFS:list('', true) or {}) do
