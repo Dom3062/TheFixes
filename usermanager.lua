@@ -1,3 +1,5 @@
+core:module("UserManager")
+
 TheFixesPreventer = TheFixesPreventer or {}
 if not TheFixesPreventer.crash_set_settings_map_userman then
 	-- usermanager.lua:817: bad argument #1 to 'pairs' (table expected, got nil)
