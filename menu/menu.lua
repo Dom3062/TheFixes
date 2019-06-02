@@ -156,6 +156,7 @@ TheFixes.dump_info = function()
 				for k2,v2 in pairs(SystemFS:list('Maps', true) or {}) do
 					info = info..k2..' '..v2..'\n'
 				end
+				break
 			end
 		end
 		
@@ -165,6 +166,7 @@ TheFixes.dump_info = function()
 				for k2,v2 in pairs(SystemFS:list('assets/mod_overrides', true) or {}) do
 					info = info..k2..' '..v2..'\n'
 				end
+				break
 			end
 		end
 		
