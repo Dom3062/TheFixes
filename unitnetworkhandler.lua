@@ -53,15 +53,3 @@ if not TheFixesPreventer.crashes_unit_nil_unitnetwork then
 		end
 	end
 end
-
-if not TheFixesPreventer.crash_sync_melee_unitnetwork then
-	function UnitNetworkHandler:sync_melee_start(...)
-		return
-	end
-	function UnitNetworkHandler:sync_melee_stop(...)
-		return
-	end
-	function UnitNetworkHandler:sync_melee_discharge(...)
-		return
-	end
-end
