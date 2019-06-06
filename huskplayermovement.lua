@@ -19,10 +19,19 @@ if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then
 	end
 end
 
-if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then
-	local sync_melee_orig = HuskPlayerMovement.sync_melee_start
-	function HuskPlayerMovement:sync_melee_start(hand, ...)
-		sync_melee_orig(self, hand or 0, ...)
+local sync_melee_orig = HuskPlayerMovement.sync_melee_start
+function HuskPlayerMovement:sync_melee_start(hand, ...)
+	if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then
+		hand = hand or 0
+	end
+	
+	if not TheFixesPreventer.crash_vr_melee_huskplayermov then
+		local anim_enabled_old = self._arm_animation_enabled
+		self._arm_animation_enabled = false
+		sync_melee_orig(self, hand, ...)
+		self._arm_animation_enabled = anim_enabled_old
+	else
+		sync_melee_orig(self, hand, ...)
 	end
 end
 
