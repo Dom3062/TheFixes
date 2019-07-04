@@ -9,6 +9,8 @@ end
 
 if CopDamage then return end
 
+if BLTplus then return end
+
 local TheFixesLog = function(txt)
 	log('[The Fixes] ' .. tostring(txt))
 end
