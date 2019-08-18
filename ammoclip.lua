@@ -1,4 +1,4 @@
--- Fix for Gambler's ammo sharing: always at least 1 bullet
+-- Fix for Gambler's ammo sharing: fix for weapons with low pickup
 local origfunc = AmmoClip.sync_net_event
 function AmmoClip:sync_net_event(event, peer, ...)
 	if event == AmmoClip.EVENT_IDS.bonnie_share_ammo
@@ -19,7 +19,13 @@ function AmmoClip:sync_net_event(event, peer, ...)
 				picked_up, add_amount = weapon.unit:base():add_ammo(tweak_data.upgrades.loose_ammo_give_team_ratio or 0.25) or picked_up
 	--------------------------------------------------
 				if picked_up and (not add_amount or add_amount < 1) then
-					picked_up, add_amount = weapon.unit:base():add_ammo(nil, 1) or picked_up
+					local wub = weapon.unit:base()
+					if wub and wub._ammo_pickup and wub._ammo_pickup[2] < 2 then
+						local prob = ((wub._ammo_pickup[1] + wub._ammo_pickup[2])/2) * tweak_data.upgrades.loose_ammo_give_team_ratio
+						if prob > math.random() then
+							picked_up, add_amount = wub:add_ammo(nil, 1) or picked_up
+						end
+					end
 				end
 	--------------------------------------------------
 			end
