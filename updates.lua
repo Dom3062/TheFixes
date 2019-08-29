@@ -9,8 +9,6 @@ end
 
 if CopDamage then return end
 
-if BLTplus then return end
-
 local TheFixesLog = function(txt)
 	log('[The Fixes] ' .. tostring(txt))
 end
@@ -239,7 +237,10 @@ local info_saved = false
 local run_upd_chk_orig = BLT.Mods._RunAutoCheckForUpdates
 BLT.Mods._RunAutoCheckForUpdates = function(...)
 	run_upd_chk_orig(...)
-	CompareVersion()
+	
+	if not BLTplus then
+		CompareVersion()
+	end
 	
 	if not info_saved and TheFixes.dump_info then
 		TheFixes.dump_info()
