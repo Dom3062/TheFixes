@@ -23,3 +23,12 @@ if not TheFixesPreventer.crash_create_setups_raycastbase then
 		return cr_use_setups_orig(self, ...)
 	end
 end
+
+if not TheFixesPreventer.crash_on_collision_raycastbase then
+	local on_coll_orig = InstantExplosiveBulletBase.on_collision
+	function InstantExplosiveBulletBase:on_collision(col_ray, ...)
+		if not col_ray.unit then return nil end
+		return on_coll_orig(self, col_ray, ...)
+	end
+end
+	
