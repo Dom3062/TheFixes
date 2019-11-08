@@ -19,10 +19,7 @@ if not TheFixesPreventer.show_mods_local_peer_networkpeer then
 		then
 			self._mods = self._mods or {}
 			for k,v in ipairs(MenuCallbackHandler:build_mods_list() or {}) do
-				table.insert(self._mods, {
-					id = v[2] or '',
-					name = v[1] or ''
-				})
+				self:register_mod(v[2], v[1])
 			end
 		end
 	end
