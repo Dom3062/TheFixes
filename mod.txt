@@ -61,10 +61,6 @@
 			"script_path": "moneymanager.lua"
 		},
 		{
-			"hook_id": "lib/units/beings/player/playerinventory",
-			"script_path": "playerinventory.lua"
-		},
-		{
 			"hook_id": "lib/managers/upgradesmanager",
 			"script_path": "upgradesmanager.lua"
 		},
