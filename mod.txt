@@ -134,10 +134,6 @@
 			"script_path": "messagesystem.lua"
 		},
 		{
-			"hook_id": "lib/managers/menu/menulobbyrenderer",
-			"script_path": "menulobbyrenderer.lua"
-		},
-		{
 			"hook_id": "lib/units/civilians/logics/civilianlogictravel",
 			"script_path": "civilianlogictravel.lua"
 		},
