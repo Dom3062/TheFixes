@@ -12,7 +12,6 @@ end
 -- 'The Red Button' achievement description
 -- Infamy achievements description
 -- 'Euro bag simulator' achievements description
--- 'Say Hello to My Big Friend' achievements description
 -- 'Spooky Pumpkin' trophy description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
@@ -23,12 +22,6 @@ function LocalizationManager:init(...)
 	if not TheFixesPreventer.achi_red_button_localeman then
 	LocalizationManager:add_localized_strings({
 		achievement_des_9_desc = self:text('achievement_des_9_desc')..' (OVERKILL+)'
-	})
-	end
-	
-	if not TheFixesPreventer.achi_hello_big_friend_localeman then
-	LocalizationManager:add_localized_strings({
-		achievement_friend_4_desc = self:text('achievement_friend_4_desc')..' (OVERKILL+) (HOST ONLY)'
 	})
 	end
 	
@@ -44,14 +37,6 @@ function LocalizationManager:init(...)
 	LocalizationManager:add_localized_strings({
 		achievement_cane_3_unlock = self:text('achievement_cane_3_unlock'):gsub('Rudolph','Rudelf')
 	})
-	end
-	
-	if not TheFixesPreventer.achi_big_brother_localeman then
-		if not self:text('achievement_vit_10_desc'):match('OVERKILL') then
-			LocalizationManager:add_localized_strings({
-				achievement_vit_10_desc = self:text('achievement_vit_10_desc')..' (OVERKILL+)'
-			})
-		end
 	end
 	
 	if not TheFixesPreventer.trophy_spooky_pumpkin_localeman then
