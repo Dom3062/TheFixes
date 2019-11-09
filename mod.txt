@@ -44,10 +44,6 @@
 			"script_path": "groupaistatebesiege.lua"
 		},
 		{
-			"hook_id": "lib/managers/dynamicresourcemanager",
-			"script_path": "dynamicresourcemanager.lua"
-		},
-		{
 			"hook_id" : "lib/managers/localizationmanager",
 			"script_path" : "localizationmanager.lua"
 
