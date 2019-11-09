@@ -194,10 +194,6 @@
 			"script_path": "gamesetup.lua"
 		},
 		{
-			"hook_id": "lib/managers/crimenetmanager",
-			"script_path": "crimenetmanager.lua"
-		},
-		{
 			"hook_id": "lib/network/base/handlers/basenetworkhandler",
 			"script_path": "basenetworkhandler.lua"
 		},
