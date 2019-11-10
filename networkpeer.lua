@@ -24,3 +24,34 @@ if not TheFixesPreventer.show_mods_local_peer_networkpeer then
 		end
 	end
 end
+
+
+if not TheFixesPreventer.crash_mod_list_encoding_networkpeer then
+	-- Crash when opening the mod list of a player
+	--  whose mod name(s) in mod.txt(s) contain exotic chars and
+	--  are encoded as windows-1251, for example
+
+	-- bad allocation
+	-- Script stack:
+		-- _text_item_part()  menunodegui.lua:1034        
+		-- _create_menu_item() menunodegui.lua:524
+		-- _setup_item_rows()  coremenunodegui.lua:147
+		-- init()  coremenunodegui.lua:64
+
+	if TheFixesLib and TheFixesLib.utf8_validator then
+		local filter = function(s)
+			local ok, i = TheFixesLib.utf8_validator(s)
+			if ok then return s end
+			return "[-]"
+		end
+	
+		local orig_register_mod = NetworkPeer.register_mod
+		function NetworkPeer:register_mod(id, friendly, ...)
+
+			id = filter(id)
+			friendly = filter(friendly)
+			
+			return orig_register_mod(self, id, friendly, ...)
+		end
+	end
+end
