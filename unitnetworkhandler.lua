@@ -1,12 +1,4 @@
 TheFixesPreventer = TheFixesPreventer or {}
-if not TheFixesPreventer.crash_sync_convert_unitnetwork then
-	local origfunc = UnitNetworkHandler.sync_unit_converted
-	function UnitNetworkHandler:sync_unit_converted(unit, ...)
-		if alive(unit) and unit:brain() then
-			return origfunc(self, unit, ...)
-		end
-	end
-end
 
 if not TheFixesPreventer.crash_sync_tear_gas_unitnetwork then
 	local origfunc2 = UnitNetworkHandler.sync_tear_gas_grenade_properties
