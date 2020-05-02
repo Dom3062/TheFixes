@@ -1,12 +1,4 @@
 TheFixesPreventer = TheFixesPreventer or {}
-if not TheFixesPreventer.crash_str_nil_localeman then
-	-- string_id=nil fix
-	local text_original = LocalizationManager.text
-	function LocalizationManager:text(string_id, ...)
-		if not string_id then string_id = 'NIL' end
-		return text_original(self, string_id, ...)
-	end
-end
 
 
 -- 'The Red Button' achievement description

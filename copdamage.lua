@@ -36,21 +36,6 @@ function CopDamage:_on_damage_received(damage_info, ...)
 	return origfunc(self, damage_info, ...)
 end
 
-if not TheFixesPreventer.concuss_gren_stuns_dominated then
-	-- Fix for concussion grenade stunning dominated and traded cops
-	local origfunc4 = CopDamage.stun_hit
-	function CopDamage:stun_hit(...)
-		local brain = self._unit:brain()
-		if brain
-			and (brain:is_current_logic('intimidated')
-				or brain:is_current_logic('trade'))
-		then
-			return
-		end
-		
-		origfunc4(self, ...)
-	end
-end
 
 if not TheFixesPreventer.crits_in_stealth then
 	-- Fix for crits in stealth
