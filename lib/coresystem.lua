@@ -3,7 +3,9 @@ TheFixesLib = TheFixesLib or {}
 local loadstring = loadstring or load
 
 local to_load = {
-	utf8_validator = "utf8_validator.lua"
+	utf8_validator = 'utf8_validator.lua',
+    deep_clone = 'deep_clone.lua',
+    mission = 'mission.lua'
 }
 
 local thisDir
