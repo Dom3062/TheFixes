@@ -10,11 +10,11 @@ if Network:is_client() then
 end
 
 local elem1 = managers.mission:get_element_by_id(102013)
-if elem1 and elem1._values.base_delay < 2 then
+if elem1 and elem1._values.base_delay and elem1._values.base_delay < 2 then
 	elem1._values.base_delay = 2
 end
 
 local elem2 = managers.mission:get_element_by_id(102014)
-if elem2 and elem2._values.base_delay < 2 then
+if elem2 and elem2._values.base_delay and elem2._values.base_delay < 2 then
 	elem2._values.base_delay = 2
 end
