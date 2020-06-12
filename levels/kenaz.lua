@@ -16,7 +16,7 @@ if Network:is_client() then
 	return
 end
 
-local input_set_armory_ids = { 196543, 196793}
+local input_set_armory_ids = { 196543, 196793 }
 for inx, id in pairs(input_set_armory_ids) do
     local input_set_armory = TheFixesLib.mission.getElementByIdAndName(id, 'input_set_armory')
     if input_set_armory
@@ -53,6 +53,7 @@ for inx, id in pairs(input_set_armory_ids) do
                     }
                 }
                 input_set_armory._values.on_executed[1] = { id = TheFixesLib.mission.lastId, delay = 0 }
+                input_set_armory._mission_script:_create_elements({police_called_2_OFF})
             end
         end
     end
