@@ -3,20 +3,19 @@ if TheFixesPreventer.heist_prison_night_secure_zone then
 	return
 end
 
+if not TheFixesLib or not TheFixesLib.mission then
+    return
+end
+
 if Network:is_client() then
 	return
 end
 
-local lastId = 999999
-local function GetId()
-	lastId = lastId + 1
-	while managers.mission:get_element_by_id(lastId) do
-		lastId = lastId + 1
-	end
-	return lastId
-end
-
-local ids = { GetId(), GetId(), GetId()}
+local ids = { 
+    TheFixesLib.mission:GetId(), 
+    TheFixesLib.mission:GetId(), 
+    TheFixesLib.mission:GetId()
+}
 
 local name = 'the_fixes_secure_zone'
 

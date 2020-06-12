@@ -3,25 +3,20 @@ if TheFixesPreventer.heist_shadow_raid_roof then
 	return
 end
 
+if not TheFixesLib or not TheFixesLib.mission then
+    return
+end
+
 if Network:is_client() then
 	return
 end
 
-local lastId = 999999
-local function GetId()
-	lastId = lastId + 1
-	while managers.mission:get_element_by_id(lastId) do
-		lastId = lastId + 1
-	end
-	return lastId
-end
-
-local el_carry_id = GetId()
-local el_lootbag_id = GetId()
+local el_carry_id = TheFixesLib.mission:GetId()
+local el_lootbag_id = TheFixesLib.mission:GetId()
 local zone = {
 	class = 'ElementAreaTrigger',
 	editor_name = 'the_fixes_roof_bags_to_respawn_area',
-	id = GetId(),
+	id = TheFixesLib.mission:GetId(),
 	module = CoreElementArea,
 	values = {
 		enabled = true,
