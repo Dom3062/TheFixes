@@ -9,16 +9,6 @@ if not TheFixesPreventer.crash_custom_mags_huskplayermov then
 	end
 end
 
-if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then
-	-- self._vehicle=nil crash fix
-	local origfunc2 = HuskPlayerMovement._upd_attention_driving
-	function HuskPlayerMovement:_upd_attention_driving(...)
-		if self._vehicle then
-			origfunc2(self, ...)
-		end
-	end
-end
-
 local sync_melee_orig = HuskPlayerMovement.sync_melee_start
 function HuskPlayerMovement:sync_melee_start(hand, ...)
 	if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then
