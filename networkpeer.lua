@@ -42,7 +42,7 @@ if not TheFixesPreventer.crash_mod_list_encoding_networkpeer then
 		local filter = function(s)
 			local ok, i = TheFixesLib.utf8_validator(s)
 			if ok then return s end
-			return "[-]"
+			return "[unknown]"
 		end
 	
 		local orig_register_mod = NetworkPeer.register_mod
