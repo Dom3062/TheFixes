@@ -154,10 +154,6 @@
 			"script_path": "copactionshoot.lua"
 		},
 		{
-			"hook_id": "lib/tweak_data/achievementstweakdata",
-			"script_path": "achievementstweakdata.lua"
-		},
-		{
 			"hook_id": "lib/units/enemies/tank/husktankcopdamage",
 			"script_path": "husktankcopdamage.lua"
 		},
