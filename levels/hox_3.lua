@@ -1,5 +1,5 @@
 TheFixesPreventer = TheFixesPreventer or {}
-if TheFixesPreventer.heist_casino_softlock then
+if TheFixesPreventer.heist_hox_revenge then
 	return
 end
 
