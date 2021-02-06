@@ -48,6 +48,10 @@
 			"script_path": "lib/coresystem.lua"
 		},
 		{
+			"hook_id": "lib/tweak_data/groupaitweakdata",
+			"script_path": "groupaitweakdata.lua"
+		},
+		{
 			"hook_id": "lib/units/enemies/cop/copdamage",
 			"script_path": "copdamage.lua"
 		},
