@@ -35,7 +35,7 @@ for inx, id in pairs(input_set_armory_ids) do
                 police_called_2._editor_name = 'the_fixes_police_called_2'
                 police_called_2:set_enabled(true)
                 police_called._mission_script._elements[pc2_id] = police_called_2
-                police_called._values.on_executed = { id = pc2_id, delay = 0 }
+                police_called._values.on_executed = {{ id = pc2_id, delay = 0 }}
                 
                 local police_called_2_OFF = {
                     class = 'ElementToggle',
