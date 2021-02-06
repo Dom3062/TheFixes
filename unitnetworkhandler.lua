@@ -7,6 +7,13 @@ if not TheFixesPreventer.crash_sync_tear_gas_unitnetwork then
 			return origfunc2(self, grenade, ...)
 		end
 	end
+
+	local stggd_orig = UnitNetworkHandler.sync_tear_gas_grenade_detonate
+	function UnitNetworkHandler:sync_tear_gas_grenade_detonate(grenade, ...)
+		if grenade and grenade:base() then
+			return stggd_orig(self, grenade, ...)
+		end
+	end
 end
 
 if not TheFixesPreventer.crash_sync_enter_vehi_unitnetwork then
