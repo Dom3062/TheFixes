@@ -7,7 +7,7 @@ ret.lastId = 999999
 
 -- Get an id that is not in use by any other element
 ret.GetId = function(self) 
-    self = self or {}
+    self = self or { lastId = 999999 }
 	self.lastId = self.lastId + 1
 	while managers.mission:get_element_by_id(self.lastId) do
 		self.lastId = self.lastId + 1
