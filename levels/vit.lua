@@ -24,13 +24,15 @@ if not managers.vehicle then
 end
 
 local func_disable_unit_058 = managers.mission:get_element_by_id(104080)
-local func_disable_unit_058_orig = func_disable_unit_058.on_executed
-func_disable_unit_058.on_executed = function(...)
-	-- Fix from Iter
-	for i = #managers.vehicle._vehicles, 1, -1 do
-		if not alive(managers.vehicle._vehicles[i]) then
-			table.remove(managers.vehicle._vehicles, i)
+if func_disable_unit_058 then
+	local func_disable_unit_058_orig = func_disable_unit_058.on_executed
+	func_disable_unit_058.on_executed = function(...)
+		-- Fix from Iter
+		for i = #managers.vehicle._vehicles, 1, -1 do
+			if not alive(managers.vehicle._vehicles[i]) then
+				table.remove(managers.vehicle._vehicles, i)
+			end
 		end
+		func_disable_unit_058_orig(...)
 	end
-	func_disable_unit_058_orig(...)
 end
