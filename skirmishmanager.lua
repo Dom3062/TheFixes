@@ -8,7 +8,7 @@ if not TheFixesPreventer.holdout_rewards_clients_2 then
 		if not res and self:active_weekly() and self:is_weekly_skirmish() then
 			local host_mod_str = managers.network.matchmake.lobby_handler:get_lobby_data("skirmish_weekly_modifiers")
 
-			if host_mod_str == self._global.active_weekly.modifiers_str then
+			if self._global.active_weekly.modifiers_str and host_mod_str == self._global.active_weekly.modifiers_str then
 				return true
 			end
 		end
