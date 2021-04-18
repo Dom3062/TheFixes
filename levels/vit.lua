@@ -3,8 +3,6 @@ if TheFixesPreventer.heist_white_house_secret then
 	return
 end
 
--- https://steamcommunity.com/app/218620/discussions/14/3110266679792256585/
-
 if Network:is_client() then
 	return
 end
@@ -18,6 +16,13 @@ if boomed_wall and took_elevator then
 	took_elevator._values.on_executed[1] = { id = 102393, delay = 0 }
 	boomed_wall._values.on_executed[1] = nil
 end
+
+
+if TheFixesPreventer.heist_white_house_murky_death then
+	return
+end
+
+-- https://steamcommunity.com/app/218620/discussions/14/3110266679792256585/
 
 if not managers.vehicle then
 	return
