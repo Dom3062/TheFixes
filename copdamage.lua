@@ -29,6 +29,7 @@ function CopDamage:_on_damage_received(damage_info, ...)
 				and char_tweak.priority_shout
 				and char_tweak.priority_shout == 'f34'
 			then
+				AchievmentManager.the_fixes_failed = AchievmentManager.the_fixes_failed or {}
 				AchievmentManager.the_fixes_failed['cac_22'] = true
 			end
 		end
