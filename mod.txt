@@ -81,6 +81,10 @@
 			"script_path": "upgradesmanager.lua"
 		},
 		{
+			"hook_id": "lib/managers/preplanningmanager",
+			"script_path": "preplanningmanager.lua"
+		},
+		{
 			"hook_id": "lib/units/beings/player/states/playerarrested",
 			"script_path": "playerarrested.lua"
 		},
