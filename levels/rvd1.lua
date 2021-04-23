@@ -11,7 +11,7 @@ end
 
 local elem = managers.mission:get_element_by_id(100507) -- disable_stuff_randomization005
 if elem then
-	if elem._values.elements and elem._values.elements[3] == 101126 then -- enable_because_gate_is_open
+	if elem._values.elements and elem._values.elements[3] and elem._values.elements[3] == 101126 then -- enable_because_gate_is_open
         table.remove(elem._values.elements, 3)
     end
 end
