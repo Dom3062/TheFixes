@@ -149,3 +149,15 @@ if not TheFixesPreventer.crash_get_char_by_name_blackmarket then
 		return res
 	end
 end
+
+if not TheFixesPreventer.crash_calc_sus_offset_blackmarket then
+	-- blackmarketmanager.lua"]:2979: attempt to perform arithmetic on local 'con_val' (a nil value)
+	local calc_sus_offset_orig = BlackMarketManager._calculate_suspicion_offset
+	function BlackMarketManager:_calculate_suspicion_offset(index, ...)
+		if not tweak_data.weapon.stats.concealment[index] then
+			index = #tweak_data.weapon.stats.concealment
+		end
+	
+		return calc_sus_offset_orig(self, index, ...)
+	end
+end
