@@ -1,0 +1,20 @@
+{
+	"the_fixes":"The Fixes",
+	
+	"TF_fire_dot_title":"Statistiche dei DNT per le fiamme",
+	"TF_fire_dot_desc":"Sistema il conteggio delle uccisioni tramite i danni nel tempo da fiamma",
+	"TF_shotgun_dozer_face_title":"Priorità al volto dei Bulldozer",
+	"TF_shotgun_dozer_face_desc":"Se un pallino di un fucile a pompa colpisce un nemico, infligge danno completo.\nQuesto forza il gioco a dare priorità al pallino che colpisce la faccia del Bulldozer.",
+	"TF_gambler_title":"Condivisione delle munizioni di Temerario",
+	"TF_gambler_desc":"Permette all'abilità di condivisione delle munizioni di Temerario di funzionare con le armi che ottengono poche munizioni da terra.",
+	"TF_dozers_counting_title":"Conteggio dei Bulldozer",
+	"TF_dozers_counting_desc":"Fa conteggiare al gioco i Bulldozer Medici e Minigun come dei normali Bulldozer e fa applicare correttamente i limiti di spawn.",
+	"TF_shotgun_turret_title":"Priorità al punto debole della torretta",
+	"TF_shotgun_turret_desc":"Se un pallino di un fucile a pompa colpisce un nemico, infligge danno completo.\nQuesto forza il gioco a dare priorità al pallino che colpisce il punto debole della torretta.",
+	"TF_dozers_walk_title":"I Bulldozer camminano vicino ai giocatori",
+	"TF_dozers_walk_desc":"Permette ai Bulldozer di camminare (e non correre) quando i giocatori sono vicini",
+	"TF_cops_reload_title":"I poliziotti ricaricano in movimento",
+	"TF_cops_reload_desc":"Permette ai poliziotti di ricaricare mentre sono in movimento",
+	"TF_instant_quit_title":"Termina l'attività del gioco quando esci",
+	"TF_instant_quit_desc":"Termina l'attività del gioco quando clicchi 'Esci' per tornare a Windows. Sistema lo stato di uscita infinito e lo stato di 'attività in corso' infinito."
+}
