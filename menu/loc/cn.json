@@ -1,0 +1,20 @@
+{
+	"the_fixes":"若干游戏BUG修复",
+	
+	"TF_fire_dot_title":"火焰伤害数据计算修复",
+	"TF_fire_dot_desc":"修复燃烧杀敌不算玩家击杀数的问题",
+	"TF_shotgun_dozer_face_title":"修复霰弹枪爆熊头的判定问题",
+	"TF_shotgun_dozer_face_desc":"如果霰弹枪射出的子弹有一发击中敌人，则计算所有的面板伤害。\n这个修复让你的霰弹枪有一发击中熊的头部就计算爆头伤害，而不是概率性计算是否为爆头伤害。",
+	"TF_gambler_title":"修复赌徒\"弹药分享\"计算错误的问题",
+	"TF_gambler_desc":"这个修复让赌徒的\"弹药分享\"能对低捡弹武器正常地触发和运行。",
+	"TF_dozers_counting_title":"熊的计算修复",
+	"TF_dozers_counting_desc":"让医疗熊和加特林熊被视为一只熊。\n原版会因为这两者不被视为熊而刷出更多的熊，导致过多的熊来进攻玩家的问题。",
+	"TF_shotgun_turret_title":"霰弹枪射击炮塔弱点的判定修复",
+	"TF_shotgun_turret_desc":"如果霰弹枪射出的子弹有一发击中敌人，则计算所有的面板伤害。\n这个修复让你的霰弹枪有一发击中炮塔的弱点就计算爆头伤害，而不是概率性计算是否为爆头伤害。",
+	"TF_dozers_walk_title":"让熊在玩家身边走路以便射击",
+	"TF_dozers_walk_desc":"让熊在玩家身边时以边走路边射击的方式攻击。\n原版有时会因为跑步而不射击也不正对玩家",
+	"TF_cops_reload_title":"警察会在移动时换弹",
+	"TF_cops_reload_desc":"允许警察在移动时换弹。\n原版需要停在某处才会换弹。",
+	"TF_instant_quit_title":"退出游戏时杀掉游戏进程",
+	"TF_instant_quit_desc":"在你通过主菜单退出游戏时使用指令杀掉游戏进程，避免无限的加载中或STEAM运行中的问题。"
+}
