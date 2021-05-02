@@ -7,8 +7,6 @@
 	"TF_shotgun_dozer_face_desc":"If one shotgun pellet hits an enemy, the whole damage is dealt.\nThis fix makes the game prioritize the pellet that hit dozer's faceplate over other pellets.",
 	"TF_gambler_title":"Fix Gambler's ammo sharing",
 	"TF_gambler_desc":"This makes Gambler's ammo sharing ability work for weapons with low pickup.",
-	"TF_shotgun_push_title":"Shotgun push fix",
-	"TF_shotgun_push_desc":"Fixes clients launching enemies far away using shotguns. Disable if you use a better fix.",
 	"TF_dozers_counting_title":"Bulldozers counting fix",
 	"TF_dozers_counting_desc":"Makes the game count medic and minigun dozers as dozers and apply spawn limits correctly.",
 	"TF_shotgun_turret_title":"Shotguns prioritize turret's weak spots",

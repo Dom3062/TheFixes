@@ -9,8 +9,11 @@ TheFixes = {
 	dozers_walk = true,
 	cops_reload = true,
 	instant_quit = true,
-	last_msg_id = ''
+	last_msg_id = '',
+	language = 1
 }
+
+local _languages = { 'blt', 'en', 'cn', 'de', 'it', 'ru', 'th' }
 
 local thisPath
 local thisDir
@@ -49,13 +52,48 @@ local function SaveSettings()
 	end
 end
 
-local function LoadLocMenu()
-	local locFile = thisDir .. 'loc/en.json'
-	local f,err = io.open(locFile, 'r')
+local function GetBestLanguageCode()
+	local lang = 'en'
+
+	if not TheFixes.language then
+		TheFixes.language = 1
+	end
+
+	if _languages[TheFixes.language] and _languages[TheFixes.language] == 'blt' then
+		if BLT and BLT.Localization and BLT.Localization.get_language then
+			lang = BLT.Localization:get_language().language or 'en'
+		end
+
+		if BLT and BLT.Mods and BLT.Mods.GetMod and BLT.Mods:GetMod('PD2TH') then
+			lang = 'th'
+		end
+		
+		if lang == 'cht' or lang == 'zh-cn' then
+			lang = 'cn'
+		end
+	else
+		lang = _languages[TheFixes.language] or 'en'
+	end
+
+	return lang or 'en'
+end
+
+local function TryLoadLocFile(filename)
+	local f,err = io.open(filename, 'r')
 	if f then
 		f:close()
-		LocalizationManager:load_localization_file(locFile)
+		LocalizationManager:load_localization_file(filename)
+		return true
 	end
+	return false
+end
+
+local function LoadLocMenu()
+	local lang = GetBestLanguageCode()
+	if not TryLoadLocFile(thisDir .. 'loc/' .. lang .. '.json') then
+		TryLoadLocFile(thisDir .. 'loc/en.json')
+	end
+	TryLoadLocFile(thisDir .. 'loc/lang_names.json')
 end
 Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_TheFixes", LoadLocMenu)
 
@@ -76,23 +114,46 @@ function MenuCallbackHandler:the_fixes_save()
 	SaveSettings()
 end
 
+function MenuCallbackHandler:the_fixes_language(item)
+	TheFixes.language = item:value() or 1
+	LoadLocMenu()
+	managers.menu:back()
+	managers.menu:open_node('the_fixes_opt')
+end
+
 MenuHelper:LoadFromJsonFile(thisDir .. 'main.json', TheFixes, TheFixes)
 
 Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", function( menu_manager, nodes )
-	local exclude = { last_msg_id = true, msg_func = true, dump_info = true }
+	local languageItems = {}
+	for k,v in pairs(_languages) do
+		languageItems[k] = 'the_fixes_lang_name_'..v
+	end
+	MenuHelper:AddMultipleChoice({
+		id = 'language',
+		title = 'LANGUAGE',
+		desc = 'Set the preffered mod language',
+		callback = 'the_fixes_language',
+		items = languageItems,
+		value = TheFixes.language or 1,
+		default_value = 1,
+		menu_id = 'the_fixes_opt',
+		localized = false,
+		priority = 100
+	})
 
+	local exclude = { last_msg_id = true, msg_func = true, dump_info = true, language = true }
 	for k,v in pairs(TheFixes or {}) do
 		if not exclude[k] then
 			MenuHelper:AddToggle({
-									id = k,
-									title = 'TF_'..k..'_title',
-									desc = 'TF_'..k..'_desc',
-									callback = 'the_fixes_toggle',
-									value = v,
-									default_value = true,
-									menu_id = 'the_fixes_opt',
-									localized = true
-								})
+				id = k,
+				title = 'TF_'..k..'_title',
+				desc = 'TF_'..k..'_desc',
+				callback = 'the_fixes_toggle',
+				value = v,
+				default_value = true,
+				menu_id = 'the_fixes_opt',
+				localized = true
+			})
 		end
 	end
 end)
