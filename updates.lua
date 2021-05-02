@@ -242,7 +242,7 @@ BLT.Mods._RunAutoCheckForUpdates = function(...)
 		CompareVersion()
 	end
 	
-	if not info_saved and TheFixes.dump_info then
+	if not info_saved and TheFixes and TheFixes.dump_info then
 		TheFixes.dump_info()
 		info_saved = true
 	end
