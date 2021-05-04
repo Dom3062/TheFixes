@@ -52,13 +52,3 @@ if not TheFixesPreventer.crashes_unit_nil_unitnetwork then
 		end
 	end
 end
-
-if not TheFixesPreventer.crash_sync_throw_projectile_unitnetwork then
-	-- unitnetworkhandler.lua"]:2536: attempt to call method 'set_owner_peer_id' (a nil value)
-	local sync_throw_projectile_orig = UnitNetworkHandler.sync_throw_projectile
-	function UnitNetworkHandler:sync_throw_projectile(unit, ...)
-		if unit and unit.base and unit:base() and unit:base().set_owner_peer_id then
-			sync_throw_projectile_orig(self, unit, ...)
-		end
-	end
-end
