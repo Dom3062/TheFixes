@@ -6,7 +6,6 @@ TheFixes = {
 	gambler = true,
 	dozers_counting = true,
 	shotgun_turret = true,
-	dozers_walk = true,
 	cops_reload = true,
 	instant_quit = true,
 	last_msg_id = '',
