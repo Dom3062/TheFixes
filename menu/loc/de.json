@@ -1,0 +1,20 @@
+{
+	"the_fixes":"The Fixes",
+	
+	"TF_fire_dot_title":"Feuerschaden über Zeit Statistik Korrektur",
+	"TF_fire_dot_desc":"Korrigiert die Zählung von Tötungen mit Feuerschaden über Zeit",
+	"TF_shotgun_dozer_face_title":"Schrotflinten priorisieren Bulldozer Gesicht",
+	"TF_shotgun_dozer_face_desc":"Diese Korrektur lässt das Spiel die Kugel priorisieren, welche die Gesichtsplatte eines 'Bulldozers' trifft, anstatt anderer Kugeln.",
+	"TF_gambler_title":"Korrigiere Munitionsteilung des Spielers",
+	"TF_gambler_desc":"Diese Korrektur lässt die Fähigkeit der Munitionsteilung des Spielers auch mit Waffen funktionieren, welche geringe Munitionsaufnahme besitzen.",
+	"TF_dozers_counting_title":"Bulldozer Zählungskorrektur",
+	"TF_dozers_counting_desc":"Lässt das Spiel 'Medic Dozers' und 'Minigun Dozers' als 'Bulldozer' zählen und Erzeugungsgrenzen korrekt anwenden.",
+	"TF_shotgun_turret_title":"Schrotfl. priorisieren Turmschwachpunkte",
+	"TF_shotgun_turret_desc":"Diese Korrektur lässt das Spiel die Kugel priorisieren, welche einen Schwachpunkt eines Geschützturms trifft, anstatt anderer Kugeln.",
+	"TF_dozers_walk_title":"Bulldozers gehen nahe Spielern",
+	"TF_dozers_walk_desc":"Lässt Bulldozer in der Nähe von Spielern gehen statt laufen",
+	"TF_cops_reload_title":"Polizisten laden während Bewegung nach",
+	"TF_cops_reload_desc":"Erlaubt den Polizisten nachzuladen, während sie sich bewegen",
+	"TF_instant_quit_title":"Töte Spielprozess beim Beenden",
+	"TF_instant_quit_desc":"Töte den Spielprozess beim klicken auf 'Beenden'. Behebt endloses beenden und endlosen 'Läuft' Status."
+}
