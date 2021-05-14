@@ -159,7 +159,7 @@ end)
 
 
 TheFixes.msg_func = function()
-	if CopDamage then return end
+	if HuskPlayerMovement then return end
 
 	if TheFixesMessage and type(TheFixesMessage) == 'string' then
 		local id, msg = TheFixesMessage:match('^(%d+) (.+)')

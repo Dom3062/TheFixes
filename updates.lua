@@ -7,7 +7,7 @@ if not BLT or
 	return	
 end
 
-if CopDamage then return end
+if HuskPlayerMovement then return end
 
 local TheFixesLog = function(txt)
 	log('[The Fixes] ' .. tostring(txt))
