@@ -25,11 +25,6 @@ end
 Dirs()
 Dirs = nil
 
--- If there is no BLT
-if not MenuHelper then
-	return
-end
-
 local function LoadSettings()
 	local file = io.open(SavePath .. 'The Fixes.txt', "r")
 	if file then
@@ -42,6 +37,11 @@ local function LoadSettings()
 	end
 end
 LoadSettings()
+
+-- If there is no BLT
+if not MenuHelper then
+	return
+end
 
 local function SaveSettings()
 	local file = io.open(SavePath .. 'The Fixes.txt', "w")
