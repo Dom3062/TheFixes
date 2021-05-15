@@ -66,6 +66,7 @@ local function ProcessUpdateInfo(data)
 		end
 
 		-- Apply patches
+		-- Every time something is patched, mod.txt and updates.lua must be also patched to point to a different info.json
 		if type(data.the_fixes_patch) == 'table' then
 			for k, v in ipairs(data.the_fixes_patch) do
 				if type(v) == 'table'
