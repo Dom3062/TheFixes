@@ -1,6 +1,4 @@
-TheFixes = TheFixes or {}
-
-TheFixes = {
+TheFixes = TheFixes or {
 	fire_dot = true,
 	shotgun_dozer_face = true,
 	gambler = true,
@@ -25,19 +23,6 @@ end
 Dirs()
 Dirs = nil
 
-local function LoadSettings()
-	local file = io.open(SavePath .. 'The Fixes.txt', "r")
-	if file then
-		for k, v in pairs(json.decode(file:read("*all")) or {}) do
-			if TheFixes[k] ~= nil then
-				TheFixes[k] = v
-			end
-		end
-		file:close()
-	end
-end
-LoadSettings()
-
 -- If there is no BLT
 if not MenuHelper then
 	return
@@ -45,6 +30,8 @@ end
 
 local function SaveSettings()
 	local file = io.open(SavePath .. 'The Fixes.txt', "w")
+	TheFixes = TheFixes or {}
+	TheFixes.override = TheFixesPreventerOverride or {}
 	if file then
 		file:write(json.encode(TheFixes or {}))
 		file:close()

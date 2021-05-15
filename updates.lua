@@ -35,11 +35,30 @@ function BLTUpdate:clbk_got_update_data(...)
 
 	if self.GetId and self:GetId() == 'the-fixes' then
 		if self._update_data and type(self._update_data) == 'table' then
+			-- Announcement
 			if self._update_data.the_fixes_message and type(self._update_data.the_fixes_message) == 'string' then
 				TheFixesMessage = self._update_data.the_fixes_message
 				
 				if TheFixes and TheFixes.msg_func then
 					TheFixes.msg_func()
+				end
+			end
+
+			-- Force disable or enable fixes
+			if self._update_data.the_fixes_preventer_override and type(self._update_data.the_fixes_preventer_override) == 'table' then
+				local needSave = false
+				local newOverride = {}
+				local wasNotEmpty = next(TheFixesPreventerOverride or {}) ~= nil
+				for k, v in pairs(self._update_data.the_fixes_preventer_override) do
+					if (TheFixesPreventer[k] or false) ~=  (v or false) then
+						newOverride[k] = v or false
+						needSave = true
+					end
+				end
+				needSave = needSave or (wasNotEmpty and next(self._update_data.the_fixes_preventer_override) == nil)
+				if needSave and MenuCallbackHandler and MenuCallbackHandler.the_fixes_save then
+					TheFixesPreventerOverride = newOverride
+					MenuCallbackHandler.the_fixes_save()
 				end
 			end
 		end

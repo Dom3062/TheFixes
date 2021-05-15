@@ -33,6 +33,13 @@
         }
     ],
 	
+	"pre_hooks": [
+		{
+			"hook_id": "core/lib/system/coresystem",
+			"script_path": "coresystem.lua"
+		}
+	],
+	
 	"hooks": [
 		{
 			"hook_id": "lib/managers/blackmarketmanager",
