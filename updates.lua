@@ -12,7 +12,7 @@ local got_upd_data_orig = BLTUpdate.clbk_got_update_data
 function BLTUpdate:clbk_got_update_data(...)
 	local ret = got_upd_data_orig(self, ...)
 
-	if self.GetId and self:GetId() == 'the-fixes' then
+	if self.GetId and self:GetId() == 'the_fixes' then
 		if type(self._update_data) == 'table' then
 			-- Announcement
 			if type(self._update_data.the_fixes_message) == 'string' then
