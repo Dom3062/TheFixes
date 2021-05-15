@@ -11,7 +11,7 @@
 
 	"updates" : [
 		{
-			"identifier" : "the-fixes",
+			"identifier" : "the_fixes",
 			"host": {
 				"meta": "https://bitbucket.org/andole/the-fixes/raw/updates/info2.json",
 				"download": "https://bitbucket.org/andole/the-fixes/raw/updates/the-fixes-latest.zip",
