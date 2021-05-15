@@ -15,12 +15,13 @@ local function ApplyPatch(path, pattern, replacement)
 	local fi, err = io.open(thisDir .. path, 'r')
 	if fi then
 		local data = fi:read("*all")
-		fi.close()
+		fi:close()
 		local newData, count = data:gsub(pattern, replacement)
 		if count and count > 0 then
 			local fo, err = io.open(thisDir .. path, 'w')
 			if fo then
 				fo:write(newData)
+				fo:close()
 			end
 		end
 	end
