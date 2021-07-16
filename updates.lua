@@ -83,19 +83,12 @@ local function ProcessUpdateInfo(data)
 end
 
 if BLT and BLTUpdate and BLTUpdate.clbk_got_update_data then
-
-	local info_saved = false
 	local got_upd_data_orig = BLTUpdate.clbk_got_update_data
 	function BLTUpdate:clbk_got_update_data(...)
 		local ret = got_upd_data_orig(self, ...)
-
+		
 		if self.GetId and self:GetId() == 'the_fixes' then
 			ProcessUpdateInfo(self._update_data)
-
-			if not info_saved and TheFixes and TheFixes.dump_info and BLT.Mods then
-				TheFixes.dump_info()
-				info_saved = true
-			end
 		end
 
 		return ret

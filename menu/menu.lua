@@ -75,7 +75,13 @@ local function TryLoadLocFile(filename)
 	return false
 end
 
+local info_saved = false
 local function LoadLocMenu()
+	if not info_saved and TheFixes and TheFixes.dump_info and BLT.Mods then
+		TheFixes.dump_info()
+		info_saved = true
+	end
+
 	local lang = GetBestLanguageCode()
 	if not TryLoadLocFile(thisDir .. 'loc/' .. lang .. '.json') then
 		TryLoadLocFile(thisDir .. 'loc/en.json')
