@@ -161,3 +161,18 @@ if not TheFixesPreventer.crash_calc_sus_offset_blackmarket then
 		return calc_sus_offset_orig(self, index, ...)
 	end
 end
+
+if not TheFixesPreventer.crash_weap_unlock_by_craft_blackmarket then
+	-- blackmarketmanager.lua"]:621: attempt to index local 'data' (a nil value)
+	local weap_unlock_by_craft_orig = BlackMarketManager.weapon_unlocked_by_crafted
+	function BlackMarketManager:weapon_unlocked_by_crafted(category, slot, ...)
+		local crafted = self._global.crafted_items[category][slot]
+
+		if crafted and crafted.weapon_id then
+			if not Global.blackmarket_manager.weapons[crafted.weapon_id] then
+				return false
+			end
+		end
+
+		return weap_unlock_by_craft_orig(self, category, slot, ...)
+end
