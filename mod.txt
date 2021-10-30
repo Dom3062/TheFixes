@@ -135,6 +135,10 @@
 			"script_path": "missionendstate.lua"
 		},
 		{
+			"hook_id": "lib/network/base/basenetworksession",
+			"script_path": "basenetworksession.lua"
+		},
+		{
 			"hook_id": "lib/units/pickups/ammoclip",
 			"script_path": "ammoclip.lua"
 		},
