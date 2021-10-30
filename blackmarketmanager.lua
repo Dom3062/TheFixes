@@ -175,4 +175,5 @@ if not TheFixesPreventer.crash_weap_unlock_by_craft_blackmarket then
 		end
 
 		return weap_unlock_by_craft_orig(self, category, slot, ...)
+	end
 end
