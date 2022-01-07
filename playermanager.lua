@@ -54,3 +54,12 @@ if not TheFixesPreventer.remove_bag_from_back_playerman then
 		end
 	end
 end
+
+if not TheFixesPreventer.set_equipment_playerman then
+	local set_equipment_orig = PlayerManager.set_synced_equipment_possession
+	function PlayerManager:set_synced_equipment_possession(peer_id, equipment, ...)
+		if equipment and tweak_data.equipments.specials[equipment] then
+			set_equipment_orig(self, peer_id, equipment, ...)
+		end
+	end
+end
