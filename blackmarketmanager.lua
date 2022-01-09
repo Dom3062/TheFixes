@@ -55,43 +55,6 @@ if not TheFixesPreventer.crash_custom_deployable then
 	end
 end
 
-if not TheFixesPreventer.check_achi_scroll_melee then
-	-- Skip achievement locked melee weapons when changing them by scrolling
-	local origs_melee_names = {
-		'equip_previous_melee_weapon',
-		'equip_next_melee_weapon'
-	}
-	local origs_melee = {}
-	for k,v in pairs(origs_melee_names) do
-		if BlackMarketManager[v] then
-			origs_melee[v] = BlackMarketManager[v]
-			BlackMarketManager[v] = function(self, ...)
-				local res = origs_melee[v](self, ...)
-				
-				if res then
-					local current = self:equipped_melee_weapon()
-					local td = tweak_data.blackmarket.melee_weapons[current]
-					if td.locks and td.locks.achievement then
-						local info = managers.achievment:get_info(td.locks.achievement)
-						if not info.awarded then
-							return self[v](self, ...)
-						end
-					elseif self['has_unlocked_'..current] then
-						local name = 'has_unlocked_'..current
-						if type(self[name]) == 'function'
-							and not self[name]()
-						then
-							return self[v](self, ...)
-						end
-					end
-				end
-				
-				return res
-			end
-		end
-	end
-end
-
 if not TheFixesPreventer.crash_custom_van_skin then
 	-- Custom van skins ? crash fix
 	local van_skin_orig = BlackMarketManager.equipped_van_skin
