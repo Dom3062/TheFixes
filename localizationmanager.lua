@@ -2,8 +2,6 @@ TheFixesPreventer = TheFixesPreventer or {}
 
 
 -- 'The Red Button' achievement description
--- Infamy achievements description
--- 'Euro bag simulator' achievements description
 -- 'Spooky Pumpkin' trophy description
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)

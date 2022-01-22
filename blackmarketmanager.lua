@@ -10,7 +10,7 @@ if not TheFixesPreventer.crash_custom_weap_and_parts then
 			end
 		end
 		local weapon_id = weapon.weapon_id or (weapon.factory_id and managers.weapon_factory:get_weapon_id_by_factory_id(weapon.factory_id) or nil)
-		if tweak_data.weapon[weapon_id] then
+		if weapon_id and tweak_data.weapon[weapon_id] then
 			return origfunc(self, weapon, ...)
 		else
 			return 0
