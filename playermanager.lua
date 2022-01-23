@@ -25,11 +25,20 @@ if not TheFixesPreventer.sixth_ammo_box_playerman then
 	end
 end
 
-if not TheFixesPreventer.set_equipment_playerman then
+if not TheFixesPreventer.crash_set_equipment_playerman then
 	local set_equipment_orig = PlayerManager.set_synced_equipment_possession
 	function PlayerManager:set_synced_equipment_possession(peer_id, equipment, ...)
 		if equipment and tweak_data.equipments.specials[equipment] then
 			set_equipment_orig(self, peer_id, equipment, ...)
 		end
+	end
+end
+
+if not TheFixesPreventer.crash_upgrade_by_level_playerman then
+	local upgrade_by_level_orig = PlayerManager.upgrade_value_by_level
+	function PlayerManager:upgrade_value_by_level(category, upgrade, ...)
+		tweak_data.upgrades.values[category] = tweak_data.upgrades.values[category] or {}
+		tweak_data.upgrades.values[category][upgrade] = tweak_data.upgrades.values[category][upgrade] or {}
+		return upgrade_by_level_orig(self, category, upgrade, ...)
 	end
 end
