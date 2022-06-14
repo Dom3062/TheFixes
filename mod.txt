@@ -20,19 +20,6 @@
 		}
 	],
 	
-	"updates+" : [
-        {
-			"identifier": "the_fixes",
-			"repository" : true,
-			"host": {
-                "platform": "bitbucket",
-                "user": "andole",
-                "project": "the-fixes",
-				"this_hash": ""
-            }
-        }
-    ],
-	
 	"pre_hooks": [
 		{
 			"hook_id": "core/lib/system/coresystem",
