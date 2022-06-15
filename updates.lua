@@ -96,7 +96,7 @@ if BLT and BLTUpdate and BLTUpdate.clbk_got_update_data then
 
 else
 
-	local url = 'https://bitbucket.org/andole/the-fixes/raw/updates/info2.json'
+	local url = 'https://www.dropbox.com/s/0z0qdjqumi1iq7f/meta.json?raw=1'
 	local fi, err = io.open(thisDir .. 'mod.txt', 'r')
 	if fi then
 		local data = fi:read("*all")
