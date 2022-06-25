@@ -2,7 +2,7 @@
 	"name": "The Fixes",
 	"description": "Lots of fixes for base game issues",
 	"author": "andole",
-	"version": "13",
+	"version": "14",
 	"blt_version" : 2.0,
 	"priority" : -10,
 	"color" : "0 0.6 0.286",
