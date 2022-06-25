@@ -11,8 +11,6 @@
 	"TF_dozers_counting_desc":"Lässt das Spiel 'Medic Dozers' und 'Minigun Dozers' als 'Bulldozer' zählen und Erzeugungsgrenzen korrekt anwenden.",
 	"TF_shotgun_turret_title":"Schrotfl. priorisieren Turmschwachpunkte",
 	"TF_shotgun_turret_desc":"Diese Korrektur lässt das Spiel die Kugel priorisieren, welche einen Schwachpunkt eines Geschützturms trifft, anstatt anderer Kugeln.",
-	"TF_dozers_walk_title":"Bulldozers gehen nahe Spielern",
-	"TF_dozers_walk_desc":"Lässt Bulldozer in der Nähe von Spielern gehen statt laufen",
 	"TF_cops_reload_title":"Polizisten laden während Bewegung nach",
 	"TF_cops_reload_desc":"Erlaubt den Polizisten nachzuladen, während sie sich bewegen",
 	"TF_instant_quit_title":"Töte Spielprozess beim Beenden",
