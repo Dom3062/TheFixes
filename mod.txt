@@ -98,10 +98,6 @@
 			"script_path": "playerarrested.lua"
 		},
 		{
-			"hook_id": "lib/units/enemies/cop/copmovement",
-			"script_path": "copmovement.lua"
-		},
-		{
 			"hook_id": "lib/managers/achievmentmanager",
 			"script_path": "achievmentmanager.lua"
 		},
