@@ -140,3 +140,35 @@ if not TheFixesPreventer.crash_weap_unlock_by_craft_blackmarket then
 		return weap_unlock_by_craft_orig(self, category, slot, ...)
 	end
 end
+
+-- Fixed a typo in "Application" as "Applicaton" that could lead to a crash when using modded parts
+if not TheFixesPreventer.crash_custom_color_switch then 
+	-- blackmarketmanager.lua:6429: attempt to index global 'Applicaton' (a nil value)
+	local set_part_custom_colors_orig = BlackMarketManager.set_part_custom_colors
+	function BlackMarketManager:set_part_custom_colors(category, slot, part_id, colors,...)
+		local part_data = tweak_data.weapon.factory.parts[part_id]
+
+		if not part_data then
+			Application:error("[BlackMarketManager:set_part_custom_colors] Part do not exist", "category", category, "slot", slot, "part_id", part_id, "texture_id", texture_id)
+
+			return
+		end
+		return set_part_custom_colors_orig(self, category, slot, part_id, colors,...)
+	end
+end
+
+-- Fixed a typo in "Application" as "Applicaton" that could lead to a crash when using modded parts
+if not TheFixesPreventer.crash_custom_texture_switch then 
+	local set_part_texture_switch_orig = BlackMarketManager.set_part_texture_switch
+	function BlackMarketManager:set_part_texture_switch(category, slot, part_id, data_string,...)
+		local part_data = tweak_data.weapon.factory.parts[part_id]
+
+		if not part_data then
+			Application:error("[BlackMarketManager:set_part_texture_switch] Part do not exist", "category", category, "slot", slot, "part_id", part_id, "texture_id", texture_id)
+
+			return
+		end
+		
+		return set_part_texture_switch_orig(self, category, slot, part_id, data_string,...)
+	end
+end
