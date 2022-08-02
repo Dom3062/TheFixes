@@ -7,7 +7,8 @@ TheFixes = TheFixes or {
 	cops_reload = true,
 	instant_quit = true,
 	last_msg_id = '',
-	language = 1
+	language = 1,
+	_hooks = {}
 }
 
 local thisPath

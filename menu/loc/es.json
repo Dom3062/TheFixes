@@ -1,0 +1,18 @@
+{
+	"the_fixes":"The Fixes",
+ 
+	"TF_fire_dot_title":"Arreglar estadísticas de muertes por fuego",
+	"TF_fire_dot_desc":"Corrige el conteo de muertes por daño de fuego a lo largo del tiempo.",
+	"TF_shotgun_dozer_face_title":"Escopetas priorizan la cara del bulldozer",
+	"TF_shotgun_dozer_face_desc":"Si un perdigón de escopeta golpea a un enemigo, se inflige todo el daño.\nHace que el juego priorice el perdigón que golpeó la placa frontal del bulldozer sobre los otros perdigones.",
+	"TF_gambler_title":"Arreglar el compartir munición de Apostador",
+	"TF_gambler_desc":"Esto hace que la capacidad de compartir munición de Apostador funcione para armas con baja recogida.",
+	"TF_dozers_counting_title":"Arreglar de conteo de Bulldozers",
+	"TF_dozers_counting_desc":"Hace que el juego cuente los Medic Dozers y Minigun Dozers como bulldozers y aplica los límites de generación correctamente.",
+	"TF_shotgun_turret_title":"Escopeta prioriza punto débil de la torreta",
+	"TF_shotgun_turret_desc":"Si un perdigón de escopeta golpea a un enemigo, se inflige todo el daño.\nHace que el juego priorice el perdigón que golpeó el punto débil de la torreta sobre los otros perdigones.",
+	"TF_cops_reload_title":"Los policías recargan cuando se mueven",
+	"TF_cops_reload_desc":"Permite a los policías recargar cuando se están moviendo.",
+	"TF_instant_quit_title":"Mata el proceso del juego al salir",
+	"TF_instant_quit_desc":"Termina el proceso del juego cuando haces clic en 'Salir' en Windows.\nCorrige el estado infinito de salida e infinito 'en ejecución'."
+}
