@@ -4,13 +4,13 @@ TheFixes = TheFixes or {
 	gambler = true,
 	dozers_counting = true,
 	shotgun_turret = true,
-	dozers_walk = true,
 	instant_quit = true,
 	last_msg_id = '',
-	language = 1
+	language = 1,
+	_hooks = {}
 }
 
-local _languages = { 'blt', 'en', 'cn', 'de', 'it', 'ru', 'th' }
+local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es" }
 
 local thisPath
 local thisDir
@@ -133,7 +133,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", func
 		priority = 100
 	})
 
-	local exclude = { last_msg_id = true, msg_func = true, dump_info = true, language = true }
+	local exclude = { last_msg_id = true, msg_func = true, dump_info = true, language = true, _hooks = true }
 	for k,v in pairs(TheFixes or {}) do
 		if not exclude[k] then
 			MenuHelper:AddToggle({

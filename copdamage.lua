@@ -1,8 +1,8 @@
 local TheFixes = TheFixes or {}
-if TheFixes.CopDamage then
+if TheFixes._hooks.CopDamage then
 	return
 else
-	TheFixes.CopDamage = true
+	TheFixes._hooks.CopDamage = true
 end
 
 TheFixesPreventer = TheFixesPreventer or {}
