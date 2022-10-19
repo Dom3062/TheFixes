@@ -83,7 +83,6 @@
 		{
 			"hook_id" : "lib/managers/localizationmanager",
 			"script_path" : "localizationmanager.lua"
-
 		},
 		{
 			"hook_id": "lib/managers/moneymanager",
@@ -253,6 +252,10 @@
 		{
 			"hook_id": "lib/managers/machinegunbeltmanager",
 			"script_path": "machinegunbeltmanager.lua"
+		},
+		{
+			"hook_id": "lib/managers/charmmanager",
+			"script_path": "charmmanager.lua"
 		}
 	]
 }
