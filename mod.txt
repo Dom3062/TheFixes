@@ -256,6 +256,10 @@
 		{
 			"hook_id": "lib/managers/charmmanager",
 			"script_path": "charmmanager.lua"
-		}
+		},
+		{
+			"hook_id": "lib/tweak_data/interactiontweakdata",
+			"script_path": "interactiontweakdata.lua"
+		},
 	]
 }
