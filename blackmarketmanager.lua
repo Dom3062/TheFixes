@@ -168,7 +168,23 @@ if not TheFixesPreventer.crash_custom_texture_switch then
 
 			return
 		end
-		
+
 		return set_part_texture_switch_orig(self, category, slot, part_id, data_string,...)
+	end
+end
+
+if not TheFixesPreventer.crash_weapon_colors_have_boost_field then
+	-- blackmarketmanager.lua"]:2934: attempt to perform arithmetic on local 'value' (a table value)
+	-- Probably caused by mods
+	-- Removes "bonus" field if the cosmetic is a weapon color
+	local _f_get_weapon_stats = BlackMarketManager._get_weapon_stats
+	function BlackMarketManager:_get_weapon_stats(weapon_id, blueprint, cosmetics, ...)
+		if cosmetics and cosmetics.id then
+			local skin = tweak_data.blackmarket.weapon_skins[cosmetics.id]
+			if skin and skin.is_a_color_skin then
+				cosmetics.bonus = nil
+			end
+		end
+		return _f_get_weapon_stats(self, weapon_id, blueprint, cosmetics, ...)
 	end
 end
