@@ -271,6 +271,10 @@
 		{
 			"hook_id" : "lib/units/beings/player/playercamera",
 			"script_path" : "bandwidth_saver.lua"
+		},
+		{
+			"hook_id": "lib/tweak_data/weaponfactorytweakdata",
+			"script_path": "weaponfactorytweakdata.lua"
 		}
 	]
 }
