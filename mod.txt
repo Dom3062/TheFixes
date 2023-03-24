@@ -275,6 +275,10 @@
 		{
 			"hook_id": "lib/tweak_data/weaponfactorytweakdata",
 			"script_path": "weaponfactorytweakdata.lua"
+		},
+		{ 
+			"hook_id" : "lib/units/interactions/interactionext",
+			"script_path" : "useinteractionext.lua"
 		}
 	]
 }
