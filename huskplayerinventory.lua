@@ -28,7 +28,7 @@ if not TheFixesPreventer.crash_set_underbarrel then
 		if not selection then
 			return
 		end
-		if selection.unit.base().set_underbarrel then --- <-------
+		if selection.unit and alive(selection.unit) and selection.unit.base and selection.unit:base() and selection.unit:base().set_underbarrel then --- <-------
 			selection.unit:base():set_underbarrel(underbarrel_id, is_on)
 		end
 	end
