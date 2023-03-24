@@ -52,7 +52,7 @@ local function ProcessUpdateInfo(data)
 			needSave = needSave or (wasNotEmpty and next(data.the_fixes_preventer_override) == nil)
 			if needSave and MenuCallbackHandler and MenuCallbackHandler.the_fixes_save then
 				TheFixesPreventerOverride = newOverride
-				MenuCallbackHandler.the_fixes_save()
+				MenuCallbackHandler:the_fixes_save()
 			end
 		end
 
@@ -86,7 +86,7 @@ if BLT and BLTUpdate and BLTUpdate.clbk_got_update_data then
 	local got_upd_data_orig = BLTUpdate.clbk_got_update_data
 	function BLTUpdate:clbk_got_update_data(...)
 		local ret = got_upd_data_orig(self, ...)
-		
+
 		if self.GetId and self:GetId() == 'the_fixes' then
 			ProcessUpdateInfo(self._update_data)
 		end

@@ -8,7 +8,8 @@ TheFixes = TheFixes or {
 	instant_quit = true,
 	last_msg_id = '',
 	language = 1,
-	_hooks = {}
+	_hooks = {},
+	_cache = {}
 }
 
 local thisPath

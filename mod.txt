@@ -2,7 +2,7 @@
 	"name": "The Fixes",
 	"description": "Lots of fixes for base game issues",
 	"author": "andole",
-	"version": "20",
+	"version": "20.2",
 	"blt_version" : 2.0,
 	"priority" : -10,
 	"color" : "0 0.6 0.286",
@@ -127,7 +127,6 @@
 		{
 			"hook_id" : "lib/managers/localizationmanager",
 			"script_path" : "updates.lua"
-
 		},
 		{
 			"hook_id": "lib/units/enemies/tank/tankcopdamage",
@@ -264,6 +263,14 @@
 		{
 			"hook_id": "lib/managers/skilltreemanager",
 			"script_path": "skilltreemanager.lua"
+		},
+		{
+			"hook_id" : "lib/units/beings/player/states/playerstandard",
+			"script_path" : "bandwidth_saver.lua"
+		},
+		{
+			"hook_id" : "lib/units/beings/player/playercamera",
+			"script_path" : "bandwidth_saver.lua"
 		}
 	]
 }
