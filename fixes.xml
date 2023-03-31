@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<mod>
+    <hooks>
+        <!-- Main code -->
+        <pre hook_id="core/lib/system/coresystem" script_path="coresystem.lua"/>
+        <post hook_id="core/lib/system/coresystem" script_path="lib/coresystem.lua"/>
+
+        <group hook_id="lib/">
+            <group :hook_id="managers/">
+                <post :hook_id="achievmentmanager" script_path="achievmentmanager.lua" />
+                <post :hook_id="banlistmanager" script_path="banlistmanager.lua" />
+                <post :hook_id="blackmarketmanager" script_path="blackmarketmanager.lua" />
+                <post :hook_id="criminalsmanager" script_path="criminalsmanager.lua" />
+                <post :hook_id="enemymanager" script_path="enemymanager.lua" />
+                <post :hook_id="explosionmanager" script_path="explosionmanager.lua" />
+                <post :hook_id="group_ai_states/groupaistatebase" script_path="groupaistatebase.lua" />
+                <post :hook_id="group_ai_states/groupaistatebesiege" script_path="groupaistatebesiege.lua" />
+                <post :hook_id="hudmanager" script_path="hudmanager.lua" />
+                <post :hook_id="charmmanager" script_path="charmmanager.lua" />
+                <post :hook_id="jobmanager" script_path="jobmanager.lua" />
+                <post :hook_id="localizationmanager" script_path="localizationmanager.lua" />
+                <post :hook_id="localizationmanager" script_path="updates.lua" />
+                <post :hook_id="machinegunbeltmanager" script_path="machinegunbeltmanager.lua" />
+                <post :hook_id="menumanager" script_path="menu/menu.lua" />
+                <post :hook_id="menu/crimespreemissionsmenucomponent" script_path="crimespreemissionsmenucomponent.lua" />
+                <post :hook_id="menu/menuscenemanager" script_path="menuscenemanager.lua" />
+                <group :hook_id="mission/">
+                    <post :hook_id="elementdialogue" script_path="elementdialogue.lua" />
+                </group>
+                <post :hook_id="moneymanager" script_path="moneymanager.lua" />
+                <post :hook_id="playermanager" script_path="playermanager.lua" />
+                <post :hook_id="preplanningmanager" script_path="preplanningmanager.lua" />
+                <post :hook_id="skilltreemanager" script_path="skilltreemanager.lua" />
+                <post :hook_id="skirmishmanager" script_path="skirmishmanager.lua" />
+                <post :hook_id="usermanager" script_path="usermanager.lua" />
+                <post :hook_id="weaponfactorymanager" script_path="weaponfactorymanager.lua" />
+            </group>
+            <group :hook_id="network/">
+                <post :hook_id="base/basenetworksession" script_path="basenetworksession.lua" />
+                <post :hook_id="base/clientnetworksession" script_path="clientnetworksession.lua" />
+                <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
+                <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
+            </group>
+            <group :hook_id="setups/">
+                <post :hook_id="gamesetup" script_path="gamesetup.lua" />
+                <post :hook_id="setup" script_path="setup.lua" />
+            </group>
+            <group :hook_id="states/">
+                <post :hook_id="missionendstate" script_path="missionendstate.lua" />
+            </group>
+            <group :hook_id="units/">
+                <post :hook_id="beings/player/playercamera" script_path="bandwidth_saver.lua" />
+                <post :hook_id="beings/player/huskplayerinventory" script_path="huskplayerinventory.lua" />
+                <post :hook_id="beings/player/huskplayermovement" script_path="huskplayermovement.lua" />
+                <post :hook_id="beings/player/states/playerarrested" script_path="playerarrested.lua" />
+                <post :hook_id="beings/player/states/playerstandard" script_path="bandwidth_saver.lua" />
+                <post :hook_id="civilians/logics/civilianlogictravel" script_path="civilianlogictravel.lua" />
+                <group :hook_id="enemies/">
+                    <post :hook_id="cop/copdamage" script_path="copdamage.lua" />
+                    <post :hook_id="cop/actions/upper_body/copactionshoot" script_path="copactionshoot.lua" />
+                    <post :hook_id="cop/logics/coplogicattack" script_path="coplogicattack.lua" />
+                    <post :hook_id="tank/tankcopdamage" script_path="tankcopdamage.lua" />
+                    <post :hook_id="tank/husktankcopdamage" script_path="husktankcopdamage.lua" />
+                    <post :hook_id="tank/logics/tankcoplogicattack" script_path="tankcoplogicattack.lua" />
+                </group>
+                <group :hook_id="equipment/">
+                    <post :hook_id="ecm_jammer/ecmjammerbase" script_path="ecmjammerbase.lua" />
+                    <post :hook_id="sentry_gun/sentrygunbase" script_path="sentrygunbase.lua" />
+                    <post :hook_id="sentry_gun/sentrygundamage" script_path="sentrygundamage.lua" />
+                </group>
+                <post :hook_id="interactions/interactionext" script_path="useinteractionext.lua" />
+                <post :hook_id="pickups/ammoclip" script_path="ammoclip.lua" />
+                <post :hook_id="props/securitycamera" script_path="securitycamera.lua" />
+                <post :hook_id="props/timergui" script_path="timergui.lua" />
+                <post :hook_id="props/unodevicebase" script_path="unodevicebase.lua" />
+                <post :hook_id="vehicles/vithelicoptersync" script_path="vithelicoptersync.lua" />
+                <post :hook_id="weapons/newnpcraycastweaponbase" script_path="newnpcraycastweaponbase.lua" />
+                <post :hook_id="weapons/projectiles/arrowbase" script_path="arrowbase.lua" />
+                <post :hook_id="weapons/raycastweaponbase" script_path="raycastweaponbase.lua" />
+            </group>
+            <group :hook_id="utils/">
+                <post :hook_id="listenerholder" script_path="listenerholder.lua" />
+                <post :hook_id="messagesystem" script_path="messagesystem.lua" />
+            </group>
+            <group :hook_id="tweak_data/">
+                <post :hook_id="achievementstweakdata" script_path="achievementstweakdata.lua" />
+                <post :hook_id="groupaitweakdata" script_path="groupaitweakdata.lua" />
+                <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
+                <post :hook_id="weaponfactorytweakdata" script_path="weaponfactorytweakdata.lua" />
+            </group>
+        </group>
+    </hooks>
+</mod>
