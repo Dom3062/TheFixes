@@ -79,7 +79,6 @@
                 <post :hook_id="weapons/raycastweaponbase" script_path="raycastweaponbase.lua" />
             </group>
             <group :hook_id="utils/">
-                <post :hook_id="listenerholder" script_path="listenerholder.lua" />
                 <post :hook_id="messagesystem" script_path="messagesystem.lua" />
             </group>
             <group :hook_id="tweak_data/">
