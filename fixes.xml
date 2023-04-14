@@ -83,6 +83,7 @@
             </group>
             <group :hook_id="tweak_data/">
                 <post :hook_id="achievementstweakdata" script_path="achievementstweakdata.lua" />
+                <post :hook_id="assetstweakdata" script_path="assetstweakdata.lua" />
                 <post :hook_id="groupaitweakdata" script_path="groupaitweakdata.lua" />
                 <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
                 <post :hook_id="weaponfactorytweakdata" script_path="weaponfactorytweakdata.lua" />
