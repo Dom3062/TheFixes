@@ -86,6 +86,7 @@
                 <post :hook_id="assetstweakdata" script_path="assetstweakdata.lua" />
                 <post :hook_id="groupaitweakdata" script_path="groupaitweakdata.lua" />
                 <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
+                <post :hook_id="lootdroptweakdata" script_path="lootdroptweakdata.lua" />
                 <post :hook_id="weaponfactorytweakdata" script_path="weaponfactorytweakdata.lua" />
             </group>
         </group>
