@@ -1,6 +1,5 @@
 TheFixes = TheFixes or {
 	fire_dot = true,
-	shotgun_dozer_face = true,
 	gambler = true,
 	dozers_counting = true,
 	shotgun_turret = true,

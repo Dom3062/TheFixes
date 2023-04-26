@@ -3,8 +3,6 @@
 	
 	"TF_fire_dot_title":"火焰伤害数据计算修复",
 	"TF_fire_dot_desc":"修复燃烧杀敌不算玩家击杀数的问题",
-	"TF_shotgun_dozer_face_title":"修复霰弹枪爆熊头的判定问题",
-	"TF_shotgun_dozer_face_desc":"如果霰弹枪射出的子弹有一发击中敌人，则计算所有的面板伤害。\n这个修复让你的霰弹枪有一发击中熊的头部就计算爆头伤害，而不是概率性计算是否为爆头伤害。",
 	"TF_gambler_title":"修复赌徒\"弹药分享\"计算错误的问题",
 	"TF_gambler_desc":"这个修复让赌徒的\"弹药分享\"能对低捡弹武器正常地触发和运行。",
 	"TF_dozers_counting_title":"熊的计算修复",

@@ -59,8 +59,6 @@
                     <post :hook_id="cop/copdamage" script_path="copdamage.lua" />
                     <post :hook_id="cop/actions/upper_body/copactionshoot" script_path="copactionshoot.lua" />
                     <post :hook_id="cop/logics/coplogicattack" script_path="coplogicattack.lua" />
-                    <post :hook_id="tank/tankcopdamage" script_path="tankcopdamage.lua" />
-                    <post :hook_id="tank/husktankcopdamage" script_path="husktankcopdamage.lua" />
                     <post :hook_id="tank/logics/tankcoplogicattack" script_path="tankcoplogicattack.lua" />
                 </group>
                 <group :hook_id="equipment/">

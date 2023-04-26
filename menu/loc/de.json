@@ -3,8 +3,6 @@
 	
 	"TF_fire_dot_title":"Feuerschaden über Zeit Statistik Korrektur",
 	"TF_fire_dot_desc":"Korrigiert die Zählung von Tötungen mit Feuerschaden über Zeit",
-	"TF_shotgun_dozer_face_title":"Schrotflinten priorisieren Bulldozer Gesicht",
-	"TF_shotgun_dozer_face_desc":"Diese Korrektur lässt das Spiel die Kugel priorisieren, welche die Gesichtsplatte eines 'Bulldozers' trifft, anstatt anderer Kugeln.",
 	"TF_gambler_title":"Korrigiere Munitionsteilung des Spielers",
 	"TF_gambler_desc":"Diese Korrektur lässt die Fähigkeit der Munitionsteilung des Spielers auch mit Waffen funktionieren, welche geringe Munitionsaufnahme besitzen.",
 	"TF_dozers_counting_title":"Bulldozer Zählungskorrektur",

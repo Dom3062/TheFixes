@@ -3,8 +3,6 @@
 	
 	"TF_fire_dot_title":"Statistiche dei DNT per le fiamme",
 	"TF_fire_dot_desc":"Sistema il conteggio delle uccisioni tramite i danni nel tempo da fiamma",
-	"TF_shotgun_dozer_face_title":"Priorità al volto dei Bulldozer",
-	"TF_shotgun_dozer_face_desc":"Se un pallino di un fucile a pompa colpisce un nemico, infligge danno completo.\nQuesto forza il gioco a dare priorità al pallino che colpisce la faccia del Bulldozer.",
 	"TF_gambler_title":"Condivisione delle munizioni di Temerario",
 	"TF_gambler_desc":"Permette all'abilità di condivisione delle munizioni di Temerario di funzionare con le armi che ottengono poche munizioni da terra.",
 	"TF_dozers_counting_title":"Conteggio dei Bulldozer",

@@ -3,8 +3,6 @@
  
 	"TF_fire_dot_title":"Arreglar estadísticas de muertes por fuego",
 	"TF_fire_dot_desc":"Corrige el conteo de muertes por daño de fuego a lo largo del tiempo.",
-	"TF_shotgun_dozer_face_title":"Escopetas priorizan la cara del bulldozer",
-	"TF_shotgun_dozer_face_desc":"Si un perdigón de escopeta golpea a un enemigo, se inflige todo el daño.\nHace que el juego priorice el perdigón que golpeó la placa frontal del bulldozer sobre los otros perdigones.",
 	"TF_gambler_title":"Arreglar el compartir munición de Apostador",
 	"TF_gambler_desc":"Esto hace que la capacidad de compartir munición de Apostador funcione para armas con baja recogida.",
 	"TF_dozers_counting_title":"Arreglar de conteo de Bulldozers",
