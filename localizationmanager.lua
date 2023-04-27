@@ -1,11 +1,10 @@
 TheFixesPreventer = TheFixesPreventer or {}
 
 -- 'Spooky Pumpkin' trophy description
--- BM_GLOBAL_VALUE_MXM (McShay Mod Pack)
 -- BM_GLOBAL_VALUE_PXP1 (McShay Weapon Pack 1)
 -- BM_GLOBAL_VALUE_PXP2 (McShay Weapon Pack 2)
 -- BM_GLOBAL_VALUE_PXP3 (McShay Weapon Pack 3)
--- BM_GLOBAL_VALUE_XM22 (Criminal Carol 2022)
+-- BM_GLOBAL_VALUE_PXP4 (McShay Weapon Pack 4)
 local origfunc = LocalizationManager.init
 function LocalizationManager:init(...)
 	origfunc(self, ...)
@@ -18,11 +17,10 @@ function LocalizationManager:init(...)
 	})
 
 	LocalizationManager:add_localized_strings({
-		bm_global_value_mxm = "McShay Mod Pack",
 		bm_global_value_pxp1 = "McShay Weapon Pack 1",
 		bm_global_value_pxp2 = "McShay Weapon Pack 2",
 		bm_global_value_pxp3 = "McShay Weapon Pack 3",
-		bm_global_value_xm22 = "Criminal Carol 2022"
+		bm_global_value_pxp4 = "McShay Weapon Pack 4"
 	})
 	end
 end
