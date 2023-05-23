@@ -17,7 +17,7 @@ if Network:is_client() then
 end
 
 local input_set_armory_ids = { 196543, 196793 }
-for inx, id in pairs(input_set_armory_ids) do
+for _, id in ipairs(input_set_armory_ids) do
     local input_set_armory = TheFixesLib.mission.getElementByIdAndName(id, 'input_set_armory')
     if input_set_armory
         and input_set_armory:enabled()

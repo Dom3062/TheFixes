@@ -1,6 +1,6 @@
 local original = AchievementsTweakData.init
-function AchievementsTweakData:init(tweak_data, ...)
-    original(self, tweak_data, ...)
+function AchievementsTweakData:init(...)
+    original(self, ...)
     if not self.enemy_kill_achievements then
         return
     end
