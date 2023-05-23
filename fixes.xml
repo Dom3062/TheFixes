@@ -25,9 +25,6 @@
                 <post :hook_id="menumanager" script_path="menu/menu.lua" />
                 <post :hook_id="menu/crimespreemissionsmenucomponent" script_path="crimespreemissionsmenucomponent.lua" />
                 <post :hook_id="menu/menuscenemanager" script_path="menuscenemanager.lua" />
-                <group :hook_id="mission/">
-                    <post :hook_id="elementdialogue" script_path="elementdialogue.lua" />
-                </group>
                 <post :hook_id="moneymanager" script_path="moneymanager.lua" />
                 <post :hook_id="playermanager" script_path="playermanager.lua" />
                 <post :hook_id="preplanningmanager" script_path="preplanningmanager.lua" />
