@@ -25,4 +25,9 @@ function AchievementsTweakData:init(...)
             end
         end
     end
+    if self.complete_heist_achievements and self.complete_heist_achievements.daily_classics and self.complete_heist_achievements.daily_classics.jobs then
+        -- https://steamcommunity.com/app/218620/discussions/14/3836549485423172127/
+        -- No Mercy is not counted in "A Trip Down Memory Lane" Side Job
+        self.complete_heist_achievements.daily_classics.jobs[#self.complete_heist_achievements.daily_classics.jobs + 1] = "nmh"
+    end
 end
