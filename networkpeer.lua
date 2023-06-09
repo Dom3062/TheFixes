@@ -4,16 +4,16 @@ if not TheFixesPreventer.show_mods_local_peer_networkpeer then
 	local orig_peer_init = NetworkPeer.init
 	function NetworkPeer:init(...)
 		orig_peer_init(self, ...)
-		
+
 		local local_peer = false
 		if self._rpc then
-			if self._rpc:ip_at_index(0) == Network:self("TCP_IP"):ip_at_index(0) then
+			if self._rpc:ip_at_index(0) == Network:self(SystemInfo:matchmaking_protocol()):ip_at_index(0) then
 				local_peer = true
 			end
-		elseif self._steam_rpc and self._steam_rpc:ip_at_index(0) == Network:self("STEAM"):ip_at_index(0) then
-			local_peer = true
+		--[[elseif self._steam_rpc and self._steam_rpc:ip_at_index(0) == Network:self("STEAM"):ip_at_index(0) then
+			local_peer = true]]
 		end
-		
+
 		if local_peer
 			and MenuCallbackHandler.build_mods_list
 		then
