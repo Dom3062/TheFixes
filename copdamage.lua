@@ -10,6 +10,7 @@ local level_id = Global and Global.game_settings and Global.game_settings.level_
 local function FailAchievement(id)
 	AchievmentManager.the_fixes_failed = AchievmentManager.the_fixes_failed or {}
 	AchievmentManager.the_fixes_failed[id] = true
+	managers.mission:call_global_event("TheFixes_AchievementFailed", id)
 end
 
 if not TheFixesPreventer.achi_masterpiece and level_id == "gallery" then
