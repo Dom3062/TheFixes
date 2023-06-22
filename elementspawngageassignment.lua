@@ -1,8 +1,6 @@
 local TheFixes = rawget(_G, "TheFixes")
-if Network:is_client() or TheFixes._hooks.ElementSpawnGageAssignment then
+if Network:is_client() or TheFixes:CheckLoadHook("ElementSpawnGageAssignment") then
     return
-else
-    TheFixes._hooks.ElementSpawnGageAssignment = true
 end
 local TheFixesPreventer = rawget(_G, "TheFixesPreventer") or {}
 if Global.game_settings.level_id == "hox_1" and not TheFixesPreventer.heist_hox_1 then
