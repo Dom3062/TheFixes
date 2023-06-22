@@ -1,24 +1,18 @@
-if HuskPlayerMovement then return end
-
-local thisPath
-local thisDir
-local upDir
-local function Dirs()
-	thisPath = debug.getinfo(2, "S").source:sub(2)
-	thisDir = string.match(thisPath, '.*/')
-	upDir = thisDir:match('(.*/).-/')
+if Global.load_level then
+	return
 end
-Dirs()
-Dirs = nil
+
+local TF = ModInstance or {}
+local thisDir = TheFixes and TheFixes.ModPath or ModPath
 
 local function ApplyPatch(path, pattern, replacement)
-	local fi, err = io.open(thisDir .. path, 'r')
+	local fi, _ = io.open(thisDir .. path, 'r')
 	if fi then
 		local data = fi:read("*all")
 		fi:close()
 		local newData, count = data:gsub(pattern, replacement)
 		if count and count > 0 then
-			local fo, err = io.open(thisDir .. path, 'w')
+			local fo, _ = io.open(thisDir .. path, 'w')
 			if fo then
 				fo:write(newData)
 				fo:close()
@@ -82,30 +76,27 @@ local function ProcessUpdateInfo(data)
 	end
 end
 
-if BLT and BLTUpdate and BLTUpdate.clbk_got_update_data then
-	local got_upd_data_orig = BLTUpdate.clbk_got_update_data
-	function BLTUpdate:clbk_got_update_data(...)
-		local ret = got_upd_data_orig(self, ...)
-
-		if self.GetId and self:GetId() == 'the_fixes' then
+if TF.HasUpdates and TF:HasUpdates() then
+	local f = {}
+	local updates = TF:GetUpdates()
+	for i, update in ipairs(updates) do
+		f[i] = update.clbk_got_update_data
+		update.clbk_got_update_data = function(self, ...)
+			local ret = f[i](self, ...)
 			ProcessUpdateInfo(self._update_data)
+			return ret
 		end
-
-		return ret
 	end
-
 else
-
 	local url = 'https://www.dropbox.com/s/0z0qdjqumi1iq7f/meta.json?raw=1'
 	local fi, err = io.open(thisDir .. 'mod.txt', 'r')
 	if fi then
 		local data = fi:read("*all")
-		fi.close()
+		fi:close()
 		if not data:find(url) then
 			assert(data:match(url:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", "%%%0")), 'Info URL in updates.lua does not match the one in mod.txt')
 		end
 	end
-
 	dohttpreq(url, function(json_data, http_id)
 		if not json_data:is_nil_or_empty() then
 			local data = json.decode(json_data)
