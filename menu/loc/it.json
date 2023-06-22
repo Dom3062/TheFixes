@@ -10,5 +10,5 @@
 	"TF_cops_reload_title":"I poliziotti ricaricano in movimento",
 	"TF_cops_reload_desc":"Permette ai poliziotti di ricaricare mentre sono in movimento",
 	"TF_instant_quit_title":"Termina l'attività del gioco quando esci",
-	"TF_instant_quit_desc":"Termina l'attività del gioco quando clicchi 'Esci' per tornare a Windows. Sistema lo stato di uscita infinito e lo stato di 'attività in corso' infinito."
+	"TF_instant_quit_desc":"Termina l'attività del gioco quando clicchi 'Esci'. Sistema lo stato di uscita infinito e lo stato di 'attività in corso' infinito."
 }

@@ -10,5 +10,5 @@
 	"TF_cops_reload_title":"Los policías recargan cuando se mueven",
 	"TF_cops_reload_desc":"Permite a los policías recargar cuando se están moviendo.",
 	"TF_instant_quit_title":"Mata el proceso del juego al salir",
-	"TF_instant_quit_desc":"Termina el proceso del juego cuando haces clic en 'Salir' en Windows.\nCorrige el estado infinito de salida e infinito 'en ejecución'."
+	"TF_instant_quit_desc":"Termina el proceso del juego cuando haces clic en 'Salir'.\nCorrige el estado infinito de salida e infinito 'en ejecución'."
 }

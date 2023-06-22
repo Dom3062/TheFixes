@@ -9,6 +9,5 @@
 	"TF_dozers_counting_desc":"让医疗熊和加特林熊被视为一只熊。\n原版会因为这两者不被视为熊而刷出更多的熊，导致过多的熊来进攻玩家的问题。",
 	"TF_cops_reload_title":"警察会在移动时换弹",
 	"TF_cops_reload_desc":"允许警察在移动时换弹。\n原版需要停在某处才会换弹。",
-	"TF_instant_quit_title":"退出游戏时杀掉游戏进程",
-	"TF_instant_quit_desc":"在你通过主菜单退出游戏时使用指令杀掉游戏进程，避免无限的加载中或STEAM运行中的问题。"
+	"TF_instant_quit_title":"退出游戏时杀掉游戏进程"
 }
