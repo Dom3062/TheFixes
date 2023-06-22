@@ -1,4 +1,10 @@
-TheFixes = TheFixes or {
+if TheFixes then
+	return
+end
+
+TheFixes = {
+	-- mods/The Fixes/
+	ModPath = ModPath,
 	fire_dot = true,
 	gambler = true,
 	dozers_counting = true,
@@ -10,16 +16,16 @@ TheFixes = TheFixes or {
 	_cache = {}
 }
 
-local thisPath
-local thisDir
-local upDir
-local function Dirs()
-	thisPath = debug.getinfo(2, "S").source:sub(2)
-	thisDir = string.match(thisPath, '.*/')
-	upDir = thisDir:match('(.*/).-/')
+function TheFixes:CheckLoadHook(hook)
+	if not Global.load_level then
+		return true
+	end
+	if self._hooks[hook] then
+		return true
+	end
+	self._hooks[hook] = true
+	return false
 end
-Dirs()
-Dirs = nil
 
 local function LoadSettings()
 	local file = io.open(SavePath .. 'The Fixes.txt', "r")

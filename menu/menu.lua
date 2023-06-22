@@ -1,39 +1,6 @@
-TheFixes = TheFixes or {
-	fire_dot = true,
-	gambler = true,
-	dozers_counting = true,
-	cops_reload = true,
-	instant_quit = true,
-	last_msg_id = '',
-	language = 1,
-	_hooks = {},
-	_cache = {}
-}
-if not TheFixes.CheckLoadHook then
-	function TheFixes:CheckLoadHook(hook)
-		if not Global.load_level then
-			return true
-		end
-		if self._hooks[hook] then
-			return true
-		end
-		self._hooks[hook] = true
-		return false
-	end
-end
+local MenuPath = TheFixes and (TheFixes.ModPath .. "menu/") or (ModPath .. "menu/")
 
 local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es", "cs" }
-
-local thisPath
-local thisDir
-local upDir
-local function Dirs()
-	thisPath = debug.getinfo(2, "S").source:sub(2)
-	thisDir = string.match(thisPath, '.*/')
-	upDir = thisDir:match('(.*/).-/')
-end
-Dirs()
-Dirs = nil
 
 -- If there is no BLT
 if not MenuHelper then
@@ -94,10 +61,10 @@ local function LoadLocMenu()
 	end
 
 	local lang = GetBestLanguageCode()
-	if not TryLoadLocFile(thisDir .. 'loc/' .. lang .. '.json') then
-		TryLoadLocFile(thisDir .. 'loc/en.json')
+	if not TryLoadLocFile(MenuPath .. 'loc/' .. lang .. '.json') then
+		TryLoadLocFile(MenuPath .. 'loc/en.json')
 	end
-	TryLoadLocFile(thisDir .. 'loc/lang_names.json')
+	TryLoadLocFile(MenuPath .. 'loc/lang_names.json')
 end
 Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_TheFixes", LoadLocMenu)
 
@@ -125,7 +92,7 @@ function MenuCallbackHandler:the_fixes_language(item)
 	managers.menu:open_node('the_fixes_opt')
 end
 
-MenuHelper:LoadFromJsonFile(thisDir .. 'main.json', TheFixes, TheFixes)
+MenuHelper:LoadFromJsonFile(MenuPath .. 'main.json', TheFixes, TheFixes)
 
 Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", function( menu_manager, nodes )
 	local languageItems = {}
@@ -145,7 +112,7 @@ Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", func
 		priority = 100
 	})
 
-	local exclude = { last_msg_id = true, msg_func = true, dump_info = true, language = true, _hooks = true, _cache = true, CheckLoadHook = true }
+	local exclude = { last_msg_id = true, msg_func = true, dump_info = true, language = true, _hooks = true, _cache = true, CheckLoadHook = true, ModPath = true }
 	for k,v in pairs(TheFixes or {}) do
 		if not exclude[k] then
 			MenuHelper:AddToggle({
