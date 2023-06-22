@@ -97,8 +97,8 @@ else
 			assert(data:match(url:gsub("[%(%)%.%%%+%-%*%?%[%]%^%$]", "%%%0")), 'Info URL in updates.lua does not match the one in mod.txt')
 		end
 	end
-	dohttpreq(url, function(json_data, http_id)
-		if not json_data:is_nil_or_empty() then
+	dohttpreq(url, function(json_data, http_id, request_info)
+		if request_info.querySucceeded and not string.is_nil_or_empty(json_data) then
 			local data = json.decode(json_data)
 			if type(data) == 'table' then
 				for k, v in pairs(data) do
