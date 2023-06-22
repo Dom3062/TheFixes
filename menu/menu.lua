@@ -22,7 +22,7 @@ if not TheFixes.CheckLoadHook then
 	end
 end
 
-local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es" }
+local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es", "cs" }
 
 local thisPath
 local thisDir
