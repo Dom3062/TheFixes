@@ -1,12 +1,16 @@
 local TheFixes = TheFixes or {}
-if TheFixes._hooks.CopDamage then
+if TheFixes:CheckLoadHook("CopDamage") then
 	return
-else
-	TheFixes._hooks.CopDamage = true
 end
 
 TheFixesPreventer = TheFixesPreventer or {}
-local level_id = Global and Global.game_settings and Global.game_settings.level_id or "branchbank"
+local level_id = "branchbank"
+local difficulty_index = 0
+if Global and Global.game_settings then
+	level_id = Global.game_settings.level_id or level_id
+	local difficulty = Global.game_settings.difficulty or "normal"
+	difficulty_index = tweak_data:difficulty_to_index(difficulty) - 2
+end
 local function FailAchievement(id)
 	AchievmentManager.the_fixes_failed = AchievmentManager.the_fixes_failed or {}
 	AchievmentManager.the_fixes_failed[id] = true
@@ -24,12 +28,14 @@ if not TheFixesPreventer.achi_masterpiece and level_id == "gallery" then
 	end)
 end
 
-if not TheFixesPreventer.achi_matrix_with_lasers and level_id == "big" then
+if not TheFixesPreventer.achi_matrix_with_lasers and level_id == "big" and difficulty_index >= 5 then
 	-- Fix for 'Matrix with lasers' achievement
 	local origfunc = CopDamage._on_damage_received
+	local can_achieve = true
 	function CopDamage:_on_damage_received(damage_info, ...)
-		if damage_info.result.type == "death" and self._unit:base().has_tag and self._unit:base():has_tag("sniper") then
+		if damage_info.result.type == "death" and can_achieve and self._unit:base().has_tag and self._unit:base():has_tag("sniper") then
 			FailAchievement("cac_22")
+			can_achieve = false
 		end
 		return origfunc(self, damage_info, ...)
 	end
