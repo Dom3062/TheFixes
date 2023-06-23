@@ -1,11 +1,11 @@
-local MenuPath = TheFixes and (TheFixes.ModPath .. "menu/") or (ModPath .. "menu/")
-
-local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es", "cs" }
-
 -- If there is no BLT
 if not MenuHelper then
 	return
 end
+
+local MenuPath = TheFixes and (TheFixes.ModPath .. "menu/") or (ModPath .. "menu/")
+
+local _languages = { "blt", "en", "cn", "de", "it", "ru", "th", "es", "cs" }
 
 local function SaveSettings()
 	local file = io.open(SavePath .. 'The Fixes.txt', "w")
@@ -25,14 +25,14 @@ local function GetBestLanguageCode()
 	end
 
 	if _languages[TheFixes.language] and _languages[TheFixes.language] == 'blt' then
-		if BLT and BLT.Localization and BLT.Localization.get_language then
-			lang = BLT.Localization:get_language().language or 'en'
+		if BLT then
+			if BLT.Localization and BLT.Localization.get_language then
+				lang = BLT.Localization:get_language().language or 'en'
+			end
+			if BLT.Mods and BLT.Mods.GetMod and BLT.Mods:GetMod('PD2TH') then
+				lang = 'th'
+			end
 		end
-
-		if BLT and BLT.Mods and BLT.Mods.GetMod and BLT.Mods:GetMod('PD2TH') then
-			lang = 'th'
-		end
-
 		if lang == 'cht' or lang == 'zh-cn' then
 			lang = 'cn'
 		end
@@ -72,8 +72,7 @@ Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_TheFixes",
 function MenuCallbackHandler:the_fixes_toggle(item)
 	local index = item._parameters.name
 	if TheFixes then
-		local val = item:value() == 'on'
-		if val then
+		if item:value() == 'on' then
 			TheFixes[index] = true
 		else
 			TheFixes[index] = false
@@ -96,7 +95,7 @@ MenuHelper:LoadFromJsonFile(MenuPath .. 'main.json', TheFixes, TheFixes)
 
 Hooks:Add("MenuManagerPopulateCustomMenus", "PopulateCustomMenus_TheFixes", function( menu_manager, nodes )
 	local languageItems = {}
-	for k,v in pairs(_languages) do
+	for k, v in ipairs(_languages) do
 		languageItems[k] = 'the_fixes_lang_name_'..v
 	end
 	MenuHelper:AddMultipleChoice({
@@ -131,18 +130,17 @@ end)
 
 
 TheFixes.msg_func = function()
-	if HuskPlayerMovement then return end
+	if Global.load_level then return end
 
 	if TheFixesMessage and type(TheFixesMessage) == 'string' then
 		local id, msg = TheFixesMessage:match('^(%d+) (.+)')
 
 		if id and msg and TheFixes and id ~= TheFixes.last_msg_id then
-			QuickMenu:new("The Fixes",
-							msg,
-						  {{
-							text = 'OK',
-							is_cancel_button = true
-							}}
+			QuickMenu:new("The Fixes", msg,
+			{{
+				text = 'OK',
+				is_cancel_button = true
+			}}
 			):Show()
 
 			TheFixes.last_msg_id = id
