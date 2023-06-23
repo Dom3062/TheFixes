@@ -10,5 +10,5 @@
 	"TF_cops_reload_title":"Cops reload when moving",
 	"TF_cops_reload_desc":"Allows cops to reload when they are moving",
 	"TF_instant_quit_title":"Kill the game process on quit",
-	"TF_instant_quit_desc":"Kills the game process when you click 'Quit' on Windows. Fixes infinite exitting and infinite 'running' status."
+	"TF_instant_quit_desc":"Kills the game process when you click 'Quit'. Fixes infinite exitting and infinite 'running' status."
 }
