@@ -16,15 +16,6 @@ if not TheFixesPreventer.crash_sync_tear_gas_unitnetwork then
 	end
 end
 
-if not TheFixesPreventer.crash_sync_enter_vehi_unitnetwork then
-	local sync_enter_vehicle_orig = UnitNetworkHandler.sync_enter_vehicle_host
-	function UnitNetworkHandler:sync_enter_vehicle_host(vehicle, seat_name, peer_id, player, ...)
-		if seat_name and peer_id and player then
-			sync_enter_vehicle_orig(self, vehicle, seat_name, peer_id, player, ...)
-		end
-	end
-end
-
 if not TheFixesPreventer.crash_sync_vehicle_player_unitnetwork then
 	--https://steamcommunity.com/app/218620/discussions/14/3430074800219422411/
 	local sync_vehicle_player_orig = UnitNetworkHandler.sync_vehicle_player
