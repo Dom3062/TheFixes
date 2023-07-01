@@ -36,12 +36,3 @@ if not TheFixesPreventer.crash_sync_vehicle_player_unitnetwork then
 		end
 	end
 end
-
-if not TheFixesPreventer.crash_sync_drill_upgrades_unitnetwork then
-	local sync_drill_upgrades_orig = UnitNetworkHandler.sync_drill_upgrades
-	function UnitNetworkHandler:sync_drill_upgrades(unit, ...)
-		if unit then
-			return sync_drill_upgrades_orig(self, unit, ...)
-		end
-	end
-end
