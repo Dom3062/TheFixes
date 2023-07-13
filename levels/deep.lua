@@ -1,3 +1,5 @@
+-- https://steamcommunity.com/app/218620/discussions/14/3811783679201803221/
+
 TheFixesPreventer = TheFixesPreventer or {}
 if not TheFixesPreventer.mute_contractor_fixes then
     -- Valve
