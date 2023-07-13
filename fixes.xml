@@ -53,6 +53,7 @@
                 <post :hook_id="beings/player/huskplayermovement" script_path="huskplayermovement.lua" />
                 <post :hook_id="beings/player/states/playerarrested" script_path="playerarrested.lua" />
                 <post :hook_id="beings/player/states/playerstandard" script_path="bandwidth_saver.lua" />
+                <post :hook_id="beings/player/states/playerstandard" script_path="playerstandard.lua" />
                 <post :hook_id="civilians/logics/civilianlogictravel" script_path="civilianlogictravel.lua" />
                 <group :hook_id="enemies/">
                     <post :hook_id="cop/copdamage" script_path="copdamage.lua" />
