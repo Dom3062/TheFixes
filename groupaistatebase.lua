@@ -26,8 +26,3 @@ function GroupAIStateBase:on_simulation_started(...)
 	self._special_unit_types['tank_mini'] = true
 	self._special_unit_types['tank_medic'] = true
 end
-
--- Fix for player equipment from custody not properly being transferred, since _player_criminals is indexed by unit key
-function GroupAIStateBase:num_alive_players()
-	return table.size(self._player_criminals)
-end

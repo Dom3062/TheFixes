@@ -63,6 +63,9 @@ function AchievementsTweakData:init(...)
             self.enemy_kill_achievements.cg22_post_objective_5.enemy = nil
             self.enemy_kill_achievements.cg22_post_objective_5.enemy_tags_any = { "tank" }
         end
+        if self.enemy_kill_achievements.sentry_kills then
+            self.enemy_kill_achievements.sentry_kills.attack_weapon_type = { weapon_1 = "sentry_gun", weapon_2 = "sentry_gun_silent" }
+        end
     end
     if self.visual and self.visual.cac_1 and self.visual.cac_1.tags and self.tags and self.tags.inventory then
         -- https://steamcommunity.com/app/218620/discussions/14/3836549485407993681/
@@ -77,7 +80,12 @@ function AchievementsTweakData:init(...)
     if self.complete_heist_achievements and self.complete_heist_achievements.daily_classics and self.complete_heist_achievements.daily_classics.jobs then
         -- https://steamcommunity.com/app/218620/discussions/14/3836549485423172127/
         -- No Mercy is not counted in "A Trip Down Memory Lane" Side Job
-        self.complete_heist_achievements.daily_classics.jobs[#self.complete_heist_achievements.daily_classics.jobs + 1] = "nmh"
+        if self.complete_heist_achievements.daily_classics and self.complete_heist_achievements.daily_classics.jobs then
+            self.complete_heist_achievements.daily_classics.jobs[#self.complete_heist_achievements.daily_classics.jobs + 1] = "nmh"
+        end
+        if self.complete_heist_achievements.challenge_srtd then
+            self.complete_heist_achievements.challenge_srtd.everyone_weapons_used = { "sentry_gun", "sentry_gun_silent" }
+        end
     end
     if self.enemy_melee_hit_achievements then
         if self.enemy_melee_hit_achievements.are_you_kidding_me then

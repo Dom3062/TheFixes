@@ -1,15 +1,5 @@
 TheFixesPreventer = TheFixesPreventer or {}
 
-if not TheFixesPreventer.crash_get_mission_elem_by_type_preplanman then
-    -- Most likely a modding issue
-    -- [string "lib/managers/preplanningmanager.lua"]:223: attempt to get length of local 'mission_elements' (a nil value)
-    local original = PrePlanningManager.get_mission_elements_by_type
-    function PrePlanningManager:get_mission_elements_by_type(...)
-        local result = original(self, ...)
-        return result or {}
-    end
-end
-
 if not TheFixesPreventer.crash_get_elem_by_type_index_preplanman then
     -- Most likely a modding issue
     -- [string "lib/managers/preplanningmanager.lua"]:1005: attempt to index a nil value

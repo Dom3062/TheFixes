@@ -1,14 +1,4 @@
 TheFixesPreventer = TheFixesPreventer or {}
-if not TheFixesPreventer.crash_custom_mags_huskplayermov then
-	-- This should fix the crash with custom magazines
-	local origfunc = HuskPlayerMovement.anim_clbk_spawn_dropped_magazine
-	function HuskPlayerMovement:anim_clbk_spawn_dropped_magazine(...)
-		if self._magazine_data then
-			origfunc(self, ...)
-		end
-	end
-end
-
 local sync_melee_orig = HuskPlayerMovement.sync_melee_start
 function HuskPlayerMovement:sync_melee_start(hand, ...)
 	if not TheFixesPreventer.crash_upd_att_drive_huskplayermov then

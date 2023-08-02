@@ -1,3 +1,5 @@
+-- https://steamcommunity.com/app/218620/discussions/14/3811783679201790912/
+
 TheFixesPreventer = TheFixesPreventer or {}
 if not TheFixesPreventer.mute_contractor_fixes then
     -- 100210 - 1775
@@ -10,7 +12,7 @@ if not TheFixesPreventer.mute_contractor_fixes then
     -- 101827 - same as 101264
     -- 101835 - garret is coming back
 
-    -- sent e-mails
+    -- send e-mail
     -- 101517 - taylor
     -- 101837 - a. valentine
     -- 101838 - chloe

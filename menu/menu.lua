@@ -178,7 +178,8 @@ TheFixes.dump_info = function()
 
 		local mods = BLT.Mods:Mods()
 		for k,v in ipairs(mods) do
-			info = info..k..' '..(v.name or '<unknown>')..' | '..(v.version or '?')..'\n'
+			local enabled = v.enabled and "" or " | DISABLED"
+			info = info..k..' '..(v.name or '<unknown>')..' | '..(v.version or '?')..enabled..'\n'
 		end
 
 		local counter = 1
