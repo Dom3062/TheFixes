@@ -78,6 +78,7 @@ function AchievementsTweakData:init(...)
         -- https://steamcommunity.com/app/218620/discussions/14/3836549485423172127/
         -- No Mercy is not counted in "A Trip Down Memory Lane" Side Job
         self.complete_heist_achievements.daily_classics.jobs[#self.complete_heist_achievements.daily_classics.jobs + 1] = "nmh"
+        self.complete_heist_achievements.challenge_srtd.everyone_weapons_used = { "sentry_gun", "sentry_gun_silent" }
     end
     if self.enemy_melee_hit_achievements then
         if self.enemy_melee_hit_achievements.are_you_kidding_me then
