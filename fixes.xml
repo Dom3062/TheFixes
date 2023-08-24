@@ -41,7 +41,6 @@
                 <post :hook_id="base/clientnetworksession" script_path="clientnetworksession.lua" />
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
                 <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
-                <post :hook_id="matchmaking/networkmatchmakingsteam" script_path="networkmatchmakingsteam.lua" />
             </group>
             <group :hook_id="setups/">
                 <post :hook_id="gamesetup" script_path="gamesetup.lua" />
