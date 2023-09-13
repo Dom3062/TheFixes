@@ -42,11 +42,9 @@
                 <post :hook_id="missionendstate" script_path="missionendstate.lua" />
             </group>
             <group :hook_id="units/">
-                <post :hook_id="beings/player/playercamera" script_path="bandwidth_saver.lua" />
                 <post :hook_id="beings/player/huskplayerinventory" script_path="huskplayerinventory.lua" />
                 <post :hook_id="beings/player/huskplayermovement" script_path="huskplayermovement.lua" />
                 <post :hook_id="beings/player/states/playerarrested" script_path="playerarrested.lua" />
-                <post :hook_id="beings/player/states/playerstandard" script_path="bandwidth_saver.lua" />
                 <post :hook_id="beings/player/states/playerstandard" script_path="playerstandard.lua" />
                 <post :hook_id="civilians/logics/civilianlogictravel" script_path="civilianlogictravel.lua" />
                 <group :hook_id="enemies/">
@@ -77,6 +75,7 @@
                 <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
                 <post :hook_id="lootdroptweakdata" script_path="lootdroptweakdata.lua" />
                 <post :hook_id="levelstweakdata" script_path="levelstweakdata.lua" />
+                <post :hook_id="networktweakdata" script_path="networktweakdata.lua" />
             </group>
         </group>
     </hooks>
