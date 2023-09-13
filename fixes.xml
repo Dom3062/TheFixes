@@ -19,7 +19,6 @@
                 <post :hook_id="jobmanager" script_path="jobmanager.lua" />
                 <post :hook_id="localizationmanager" script_path="localizationmanager.lua" />
                 <post :hook_id="localizationmanager" script_path="updates.lua" />
-                <post :hook_id="machinegunbeltmanager" script_path="machinegunbeltmanager.lua" />
                 <post :hook_id="menumanager" script_path="menu/menu.lua" />
                 <post :hook_id="menumanagerdialogs" script_path="menumanagerdialogs.lua" />
                 <post :hook_id="menu/crimespreemissionsmenucomponent" script_path="crimespreemissionsmenucomponent.lua" />
