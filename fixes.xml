@@ -78,7 +78,6 @@
                 <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
                 <post :hook_id="lootdroptweakdata" script_path="lootdroptweakdata.lua" />
                 <post :hook_id="levelstweakdata" script_path="levelstweakdata.lua" />
-                <post :hook_id="preplanningtweakdata" script_path="preplanningtweakdata.lua" />
             </group>
         </group>
     </hooks>
