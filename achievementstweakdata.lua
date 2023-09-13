@@ -63,9 +63,6 @@ function AchievementsTweakData:init(...)
             self.enemy_kill_achievements.cg22_post_objective_5.enemy = nil
             self.enemy_kill_achievements.cg22_post_objective_5.enemy_tags_any = { "tank" }
         end
-        if self.enemy_kill_achievements.sentry_kills then
-            self.enemy_kill_achievements.sentry_kills.attack_weapon_type = { weapon_1 = "sentry_gun", weapon_2 = "sentry_gun_silent" }
-        end
     end
     if self.complete_heist_achievements and self.complete_heist_achievements.daily_classics and self.complete_heist_achievements.daily_classics.jobs then
         -- https://steamcommunity.com/app/218620/discussions/14/3836549485423172127/
