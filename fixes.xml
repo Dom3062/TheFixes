@@ -28,7 +28,6 @@
                 <post :hook_id="preplanningmanager" script_path="preplanningmanager.lua" />
                 <post :hook_id="skilltreemanager" script_path="skilltreemanager.lua" />
                 <post :hook_id="skirmishmanager" script_path="skirmishmanager.lua" />
-                <post :hook_id="usermanager" script_path="usermanager.lua" />
                 <post :hook_id="weaponfactorymanager" script_path="weaponfactorymanager.lua" />
             </group>
             <group :hook_id="network/">
