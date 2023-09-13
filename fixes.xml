@@ -31,7 +31,6 @@
                 <post :hook_id="weaponfactorymanager" script_path="weaponfactorymanager.lua" />
             </group>
             <group :hook_id="network/">
-                <post :hook_id="base/clientnetworksession" script_path="clientnetworksession.lua" />
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
                 <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
             </group>
