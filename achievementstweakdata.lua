@@ -67,16 +67,6 @@ function AchievementsTweakData:init(...)
             self.enemy_kill_achievements.sentry_kills.attack_weapon_type = { weapon_1 = "sentry_gun", weapon_2 = "sentry_gun_silent" }
         end
     end
-    if self.visual and self.visual.cac_1 and self.visual.cac_1.tags and self.tags and self.tags.inventory then
-        -- https://steamcommunity.com/app/218620/discussions/14/3836549485407993681/
-        -- Compact Confrontation
-        -- Kill a Sniper from a distance of 40 meters with the Compact 40mm Grenade Launcher.
-        for i, tag in ipairs(self.visual.cac_1.tags) do
-            if tag == self.tags.inventory.mask then
-                self.visual.cac_1.tags[i] = self.tags.inventory.weapon
-            end
-        end
-    end
     if self.complete_heist_achievements and self.complete_heist_achievements.daily_classics and self.complete_heist_achievements.daily_classics.jobs then
         -- https://steamcommunity.com/app/218620/discussions/14/3836549485423172127/
         -- No Mercy is not counted in "A Trip Down Memory Lane" Side Job
