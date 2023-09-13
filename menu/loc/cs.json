@@ -5,8 +5,6 @@
 	"TF_fire_dot_desc":"Opravuje sčítání zabití ohněm a funkcí DOT (Damage over time - 'Poškození v průběhu času')",
 	"TF_gambler_title":"Oprava sdílení munice v perku Gambler",
 	"TF_gambler_desc":"Opravuje sdílení munice, aby fungoval se zbraněni, které získají malý počet nábojů z balíčků po mrtvých nepřátelích.",
-	"TF_dozers_counting_title":"Oprava sčítání buldozerů",
-	"TF_dozers_counting_desc":"Hra sečte medic a minigun dozery jako buldozery a aplikuje herní limit buldozerů správně.",
 	"TF_cops_reload_title":"Nepřátelé nabíjí za chůze",
 	"TF_cops_reload_desc":"Umožňuje nepřátelům nabíjet za chůze",
 	"TF_instant_quit_title":"Zabít herní proces při ukončení",

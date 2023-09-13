@@ -7,7 +7,6 @@ TheFixes = {
 	ModPath = ModPath,
 	fire_dot = true,
 	gambler = true,
-	dozers_counting = true,
 	cops_reload = true,
 	instant_quit = true,
 	last_msg_id = '',
