@@ -20,16 +20,3 @@ if not TheFixesPreventer.crash_align_place_huskplayerinv then
 		end
 	end
 end
-
-if not TheFixesPreventer.crash_set_underbarrel then
-	function HuskPlayerInventory:set_weapon_underbarrel(selection_index, underbarrel_id, is_on)
-		selection_index = (tonumber(selection_index) - 1) % 2 + 1
-		local selection = self._available_selections[selection_index]
-		if not selection then
-			return
-		end
-		if selection.unit and alive(selection.unit) and selection.unit.base and selection.unit:base() and selection.unit:base().set_underbarrel then --- <-------
-			selection.unit:base():set_underbarrel(underbarrel_id, is_on)
-		end
-	end
-end
