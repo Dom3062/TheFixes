@@ -63,7 +63,6 @@
                 <post :hook_id="pickups/ammoclip" script_path="ammoclip.lua" />
                 <post :hook_id="props/securitycamera" script_path="securitycamera.lua" />
                 <post :hook_id="props/timergui" script_path="timergui.lua" />
-                <post :hook_id="props/unodevicebase" script_path="unodevicebase.lua" />
                 <post :hook_id="weapons/newnpcraycastweaponbase" script_path="newnpcraycastweaponbase.lua" />
                 <post :hook_id="weapons/projectiles/arrowbase" script_path="arrowbase.lua" />
                 <post :hook_id="weapons/raycastweaponbase" script_path="raycastweaponbase.lua" />
