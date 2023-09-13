@@ -11,34 +11,26 @@
                 <post :hook_id="banlistmanager" script_path="banlistmanager.lua" />
                 <post :hook_id="blackmarketmanager" script_path="blackmarketmanager.lua" />
                 <post :hook_id="criminalsmanager" script_path="criminalsmanager.lua" />
-                <post :hook_id="crimenetmanager" script_path="crimenetmanager.lua" />
                 <post :hook_id="enemymanager" script_path="enemymanager.lua" />
                 <post :hook_id="explosionmanager" script_path="explosionmanager.lua" />
                 <post :hook_id="group_ai_states/groupaistatebase" script_path="groupaistatebase.lua" />
                 <post :hook_id="group_ai_states/groupaistatebesiege" script_path="groupaistatebesiege.lua" />
                 <post :hook_id="hudmanager" script_path="hudmanager.lua" />
-                <post :hook_id="charmmanager" script_path="charmmanager.lua" />
                 <post :hook_id="jobmanager" script_path="jobmanager.lua" />
                 <post :hook_id="localizationmanager" script_path="localizationmanager.lua" />
                 <post :hook_id="localizationmanager" script_path="updates.lua" />
-                <post :hook_id="machinegunbeltmanager" script_path="machinegunbeltmanager.lua" />
                 <post :hook_id="menumanager" script_path="menu/menu.lua" />
-                <post :hook_id="menumanagerdialogs" script_path="menumanagerdialogs.lua" />
                 <post :hook_id="menu/crimespreemissionsmenucomponent" script_path="crimespreemissionsmenucomponent.lua" />
                 <post :hook_id="menu/menuscenemanager" script_path="menuscenemanager.lua" />
                 <post :hook_id="mission/elementspawngageassignment" script_path="elementspawngageassignment.lua" />
-                <post :hook_id="missionassetsmanager" script_path="missionassetsmanager.lua" />
                 <post :hook_id="moneymanager" script_path="moneymanager.lua" />
                 <post :hook_id="playermanager" script_path="playermanager.lua" />
                 <post :hook_id="preplanningmanager" script_path="preplanningmanager.lua" />
                 <post :hook_id="skilltreemanager" script_path="skilltreemanager.lua" />
                 <post :hook_id="skirmishmanager" script_path="skirmishmanager.lua" />
-                <post :hook_id="usermanager" script_path="usermanager.lua" />
                 <post :hook_id="weaponfactorymanager" script_path="weaponfactorymanager.lua" />
             </group>
             <group :hook_id="network/">
-                <post :hook_id="base/basenetworksession" script_path="basenetworksession.lua" />
-                <post :hook_id="base/clientnetworksession" script_path="clientnetworksession.lua" />
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
                 <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
             </group>
@@ -50,11 +42,9 @@
                 <post :hook_id="missionendstate" script_path="missionendstate.lua" />
             </group>
             <group :hook_id="units/">
-                <post :hook_id="beings/player/playercamera" script_path="bandwidth_saver.lua" />
                 <post :hook_id="beings/player/huskplayerinventory" script_path="huskplayerinventory.lua" />
                 <post :hook_id="beings/player/huskplayermovement" script_path="huskplayermovement.lua" />
                 <post :hook_id="beings/player/states/playerarrested" script_path="playerarrested.lua" />
-                <post :hook_id="beings/player/states/playerstandard" script_path="bandwidth_saver.lua" />
                 <post :hook_id="beings/player/states/playerstandard" script_path="playerstandard.lua" />
                 <post :hook_id="civilians/logics/civilianlogictravel" script_path="civilianlogictravel.lua" />
                 <group :hook_id="enemies/">
@@ -71,7 +61,6 @@
                 <post :hook_id="pickups/ammoclip" script_path="ammoclip.lua" />
                 <post :hook_id="props/securitycamera" script_path="securitycamera.lua" />
                 <post :hook_id="props/timergui" script_path="timergui.lua" />
-                <post :hook_id="props/unodevicebase" script_path="unodevicebase.lua" />
                 <post :hook_id="weapons/newnpcraycastweaponbase" script_path="newnpcraycastweaponbase.lua" />
                 <post :hook_id="weapons/projectiles/arrowbase" script_path="arrowbase.lua" />
                 <post :hook_id="weapons/raycastweaponbase" script_path="raycastweaponbase.lua" />
@@ -86,7 +75,7 @@
                 <post :hook_id="interactiontweakdata" script_path="interactiontweakdata.lua" />
                 <post :hook_id="lootdroptweakdata" script_path="lootdroptweakdata.lua" />
                 <post :hook_id="levelstweakdata" script_path="levelstweakdata.lua" />
-                <post :hook_id="preplanningtweakdata" script_path="preplanningtweakdata.lua" />
+                <post :hook_id="networktweakdata" script_path="networktweakdata.lua" />
             </group>
         </group>
     </hooks>

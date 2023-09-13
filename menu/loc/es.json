@@ -5,8 +5,6 @@
 	"TF_fire_dot_desc":"Corrige el conteo de muertes por daño de fuego a lo largo del tiempo.",
 	"TF_gambler_title":"Arreglar el compartir munición de Apostador",
 	"TF_gambler_desc":"Esto hace que la capacidad de compartir munición de Apostador funcione para armas con baja recogida.",
-	"TF_dozers_counting_title":"Arreglar de conteo de Bulldozers",
-	"TF_dozers_counting_desc":"Hace que el juego cuente los Medic Dozers y Minigun Dozers como bulldozers y aplica los límites de generación correctamente.",
 	"TF_cops_reload_title":"Los policías recargan cuando se mueven",
 	"TF_cops_reload_desc":"Permite a los policías recargar cuando se están moviendo.",
 	"TF_instant_quit_title":"Mata el proceso del juego al salir",

@@ -5,8 +5,6 @@
 	"TF_fire_dot_desc":"Fixes the counting of kills by fire damage over time",
 	"TF_gambler_title":"Fix Gambler's ammo sharing",
 	"TF_gambler_desc":"This makes Gambler's ammo sharing ability work for weapons with low pickup.",
-	"TF_dozers_counting_title":"Bulldozers counting fix",
-	"TF_dozers_counting_desc":"Makes the game count medic and minigun dozers as dozers and apply spawn limits correctly.",
 	"TF_cops_reload_title":"Cops reload when moving",
 	"TF_cops_reload_desc":"Allows cops to reload when they are moving",
 	"TF_instant_quit_title":"Kill the game process on quit",
