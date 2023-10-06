@@ -33,6 +33,7 @@
             <group :hook_id="network/">
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
                 <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
+                <post :hook_id="matchmaking/networkmatchmakingepic" script_path="networkmatchmakingepic.lua" />
             </group>
             <group :hook_id="setups/">
                 <post :hook_id="gamesetup" script_path="gamesetup.lua" />
@@ -57,7 +58,6 @@
                     <post :hook_id="ecm_jammer/ecmjammerbase" script_path="ecmjammerbase.lua" />
                     <post :hook_id="sentry_gun/sentrygunbase" script_path="sentrygunbase.lua" />
                 </group>
-                <post :hook_id="interactions/interactionext" script_path="useinteractionext.lua" />
                 <post :hook_id="pickups/ammoclip" script_path="ammoclip.lua" />
                 <post :hook_id="props/securitycamera" script_path="securitycamera.lua" />
                 <post :hook_id="props/timergui" script_path="timergui.lua" />

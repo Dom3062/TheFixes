@@ -15,6 +15,14 @@ TheFixes = {
 	_cache = {}
 }
 
+function TheFixes:CheckHook(hook)
+	if self._hooks[hook] then
+		return true
+	end
+	self._hooks[hook] = true
+	return false
+end
+
 function TheFixes:CheckLoadHook(hook)
 	if not Global.load_level then
 		return true
