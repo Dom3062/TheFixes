@@ -30,9 +30,9 @@
                 <post :hook_id="skirmishmanager" script_path="skirmishmanager.lua" />
                 <post :hook_id="weaponfactorymanager" script_path="weaponfactorymanager.lua" />
             </group>
+            <post :hook_id="modifiers/modifierdozerrage" script_path="modifierdozerrage.lua" />
             <group :hook_id="network/">
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
-                <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
                 <post :hook_id="matchmaking/networkmatchmakingepic" script_path="networkmatchmakingepic.lua" />
             </group>
             <group :hook_id="setups/">
