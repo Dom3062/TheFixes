@@ -32,7 +32,6 @@
             </group>
             <group :hook_id="network/">
                 <post :hook_id="base/networkpeer" script_path="networkpeer.lua" />
-                <post :hook_id="handlers/unitnetworkhandler" script_path="unitnetworkhandler.lua" />
                 <post :hook_id="matchmaking/networkmatchmakingepic" script_path="networkmatchmakingepic.lua" />
             </group>
             <group :hook_id="setups/">
